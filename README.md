@@ -9,10 +9,6 @@
 -   Course code: ISYS2101
 -   Lecturer: Miss. Anna Lyza Felipe
 
--   Assignment number: 1
--   Assignment title: Build a console app
--   Assignment type: Individual code submission
-
 ### Contributors
 
 -   Supervisor: Miss. Anna Lyza Felipe
@@ -84,7 +80,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### Note
 
--   View demo available at: \_\_\_
+-   View demo available at: https://rmit-what-to-eat.netlify.app/
 
 ### Supporting tools used
 
