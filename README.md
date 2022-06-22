@@ -1,6 +1,45 @@
-# Getting Started with Create React App
+# Food Recommend Website-Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Course Information
+
+-   University: Royal Melbourne Institution of Technology (RMIT)
+-   Campus: Saigon South (SGS), Vietnam
+
+-   Course: Software Engineering Project Management (SEPM)
+-   Course code: ISYS2101
+-   Lecturer: Miss. Anna Lyza Felipe
+
+-   Assignment number: 1
+-   Assignment title: Build a console app
+-   Assignment type: Individual code submission
+
+### Contributors
+
+-   Supervisor: Miss. Anna Lyza Felipe
+-   Supervisor: Mr. Ho Nguyen Phu Bao
+
+-   Frontend developer: Nguyen Luu Quoc Bao (s3877698)
+-   Frontend developer: Nguyen Anh Duy (s3878141)
+-   Backend developer: Dao Kha Tuan (s3877347)
+-   Backend developer: Nguyen Trong Minh Long (s3878694)
+
+### Project Information
+
+-   Project name: Food Recommend Website-Application
+-   Purpose: Recommend food on vendors for RMIT Students
+-   Functionalities: \_
+-   Technologies used:
+
+    -   Frontend: HTML, SASS, ReactJS, TailwindCSS
+    -   Backend: MongoDB, ExpressJS, NodeJS
+
+    -   Data analysis: Python, Numpy
+    -   Data visualization: ChartJS, MatplotLib (Pyplot)
+
+-   Project started date: 27 June 2022
+-   Project finished date: 19 September 2022
+
+### To Run
 
 ## Available Scripts
 
@@ -39,32 +78,17 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### Note
+
+-   View demo available at: \_\_\_
+
+### Supporting tools used
+
+-   Canva and Figma: for designing the user interfaces
+-   Microsoft Word 2022: for documenting technical report
+
+### References
