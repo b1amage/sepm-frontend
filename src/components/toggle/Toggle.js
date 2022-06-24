@@ -9,7 +9,7 @@ const Toggle = () => {
 
 	return ReactDOM.createPortal(
 		<div
-			className="fixed z-30 flex right-[8px] bottom-[8px] items-center space-x-3 dark:text-white bottom-"
+			className="cursor-pointer fixed z-30 flex right-[8px] bottom-[8px] items-center space-x-3 dark:text-white text-darkPurple"
 			onClick={toggleDarkMode}
 		>
 			<p>{isDarkMode ? "Light" : "Dark"}</p>

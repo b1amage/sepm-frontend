@@ -3,7 +3,27 @@
 @tailwind utilities;
 
 @layer components {
+	html {
+		@apply scroll-smooth;
+	}
+
 	body {
 		@apply m-0 font-sans-serif antialiased dark:bg-darkPurple bg-white transition-all duration-500;
 	}
+}
+
+::selection {
+	@apply text-pink bg-darkPurple;
+}
+
+body::-webkit-scrollbar {
+	@apply w-2;
+}
+
+body::-webkit-scrollbar-track {
+	@apply shadow-sm;
+}
+
+body::-webkit-scrollbar-thumb {
+	@apply bg-darkPurple dark:bg-pink outline outline-[1px] outline-transparent;
 }

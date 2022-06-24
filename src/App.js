@@ -2,7 +2,7 @@ import Toggle from "./components/toggle/Toggle";
 
 function App() {
 	return (
-		<div>
+		<div className="">
 			<Toggle />
 		</div>
 	);
