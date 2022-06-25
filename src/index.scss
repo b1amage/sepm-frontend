@@ -8,12 +8,12 @@
 	}
 
 	body {
-		@apply m-0 font-sans-serif antialiased dark:bg-darkPurple bg-white text-darkPurple dark:text-white transition-all duration-500;
+		@apply m-0 scroll-smooth font-sans-serif antialiased dark:bg-navy-600 bg-white dark:text-slate-600 text-navy-600 transition-all duration-500;
 	}
 }
 
 ::selection {
-	@apply text-pink bg-darkPurple;
+	@apply bg-navy-200 text-slate-200;
 }
 
 body::-webkit-scrollbar {
@@ -21,9 +21,9 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-	@apply shadow-sm;
+	@apply shadow-sm bg-navy-200;
 }
 
 body::-webkit-scrollbar-thumb {
-	@apply bg-darkPurple dark:bg-pink outline outline-[1px] outline-transparent;
+	@apply bg-slate-400 outline-none rounded-sm;
 }

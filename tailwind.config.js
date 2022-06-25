@@ -11,12 +11,23 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				white: "#fff",
-				darkPurple: "#0F103F",
-				purple: "#1C1C65",
-				lightPurple: "#2F2F8A",
-				pink: "#C961DE",
-				blue: "#2954A3",
+				transparent: "transparent",
+				current: "currentColor",
+				white: "#e6f1ff",
+				navy: {
+					200: "#233554",
+					400: "#112240",
+					600: "#0a192f",
+					800: "#020c1b",
+				},
+				green: "#64ffda",
+				greenTin: "rgba(100,255,218,0.1)",
+				slate: {
+					200: "#ccd6f6",
+					400: "#a8b2d1",
+					600: "#8892b0",
+					800: "#495670",
+				},
 			},
 		},
 
