@@ -1,9 +1,16 @@
 import Toggle from "./components/toggle/Toggle";
+import { Routes, Route } from "react-router-dom";
+import OTPPage from "./views/OTPPage";
 
 function App() {
 	return (
 		<div className="">
-			<Toggle />
+			<>
+				<Routes>
+					<Route path="/" element={<OTPPage />} />
+				</Routes>
+				<Toggle />
+			</>
 		</div>
 	);
 }

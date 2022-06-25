@@ -1,7 +1,7 @@
 import React from "react";
 
 const OTPPage = () => {
-	return <div></div>;
+	return <div>OTP</div>;
 };
 
 export default OTPPage;
