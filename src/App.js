@@ -7,7 +7,7 @@ function App() {
 		<div className="">
 			<>
 				<Routes>
-					<Route path="/" element={<OTPPage />} />
+					<Route path="/otp" element={<OTPPage />} />
 				</Routes>
 				<Toggle />
 			</>
