@@ -1,16 +1,10 @@
 import Toggle from "./components/toggle/Toggle";
-import { Routes, Route } from "react-router-dom";
-import OTPPage from "./views/OTPPage";
-import LoginPage from "./views/LoginPage";
-
+import AnimatedRoutes from "./utilities/AnimatedRoutes";
 function App() {
 	return (
 		<div className="">
 			<>
-				<Routes>
-					<Route path="/otp" element={<OTPPage />} />
-					<Route path="/login" element={<LoginPage />} />
-				</Routes>
+				<AnimatedRoutes />
 				<Toggle />
 			</>
 		</div>
