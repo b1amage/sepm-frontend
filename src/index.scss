@@ -8,22 +8,22 @@
 	}
 
 	body {
-		@apply m-0 scroll-smooth font-sans-serif antialiased dark:bg-navy-600 bg-white dark:text-slate-600 text-navy-600 transition-all duration-500;
+		@apply m-0 scroll-smooth font-dm-sans antialiased text-black-600 bg-white-400 transition-all duration-500 dark:bg-black-600 dark:text-white-200;
 	}
 }
 
 ::selection {
-	@apply bg-navy-200 text-slate-200;
+	@apply bg-black-400 text-white-200 dark:bg-white-200 dark:text-black-400;
 }
 
 body::-webkit-scrollbar {
-	@apply w-2;
+	@apply w-2 h-10 transition-all;
 }
 
 body::-webkit-scrollbar-track {
-	@apply shadow-sm bg-navy-200;
+	@apply shadow-sm bg-white-800 dark:bg-black-400;
 }
 
 body::-webkit-scrollbar-thumb {
-	@apply bg-slate-400 outline-none rounded-sm;
+	@apply bg-black-400 dark:bg-white-400 outline-none;
 }

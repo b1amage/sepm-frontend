@@ -36,13 +36,13 @@ const LoginForm = () => {
 
 	return (
 		<form
-			className="px-8 py-6 mx-auto rounded-lg lg:w-1/2 bg-slate-400 dark:bg-navy-200"
+			className="w-full mx-auto rounded-lg ld:py-6 lg:px-8 lg:w-1/2 md:w-2/3"
 			onSubmit={formik.handleSubmit}
 		>
-			<div className="mb-6">
+			<div className="mb-6 md:mb-10 lg:mb-16">
 				<label
 					htmlFor="email"
-					className="block mb-2 text-sm font-bold lg:text-lgtext-navy-600 dark:text-white"
+					className="block mb-2 text-sm font-bold lg:text-lg"
 				>
 					Your email
 				</label>
@@ -52,18 +52,22 @@ const LoginForm = () => {
 					autoComplete="off"
 					type="email"
 					id="email"
-					className="input placeholder:text-sm bg-transparent border border-navy-400 dark:border-green text-navy-600 dark:text-slate-200 text-sm md:text-lg rounded-lg focus:border-navy-200 focus:dark:border-green block w-full p-2.5 placeholder:text-white focus:placeholder:text-navy-400 dark:placeholder-slate-200 outline-none dark:focus:bg-greenTin focus:bg-slate-200 transition-all duration-300"
+					className="block w-full p-3 text-sm transition-all duration-300 bg-transparent border rounded-lg outline-none input placeholder:text-sm border-black-400 dark:border-white-400 md:text-lg placeholder:text-white focus:bg-white-200 dark:focus:bg-black-400"
 					placeholder="eg. s3877698@rmit.edu.vn"
 					required
 				/>
 				{formik.errors.email && (
-					<p className="text-red-600"> {formik.errors.email} </p>
+					<p
+						className={`my-4 text-sm font-thin text-red-500 md:text-lg transition-all duration-300`}
+					>
+						{formik.errors.email}
+					</p>
 				)}
 			</div>
-			<div className="mb-6">
+			<div className="mb-6 md:mb-10 lg:mb-16">
 				<label
 					htmlFor="password"
-					className="block mb-2 text-sm font-bold lg:text-lgtext-navy-600 dark:text-white"
+					className="block mb-2 text-sm font-bold lg:text-lg"
 				>
 					Your password
 				</label>
@@ -74,7 +78,7 @@ const LoginForm = () => {
 						autoComplete="off"
 						type={`${isShowPassword ? "text" : "password"}`}
 						id="password"
-						className="input placeholder:text-sm bg-transparent border border-navy-400 dark:border-green text-navy-600 dark:text-slate-200 text-sm md:text-lg rounded-lg focus:border-navy-200 focus:dark:border-green block w-full p-2.5 dark:placeholder-slate-200 outline-none dark:focus:bg-greenTin focus:bg-slate-200 transition-all duration-300"
+						className="block w-full p-3 text-sm transition-all duration-300 bg-transparent border rounded-lg outline-none input placeholder:text-sm border-black-400 dark:border-white-400 md:text-lg placeholder:text-white focus:bg-white-200 dark:focus:bg-black-400"
 						required
 					/>
 
@@ -87,13 +91,17 @@ const LoginForm = () => {
 				</div>
 
 				{formik.errors.password && (
-					<p className="text-red-600"> {formik.errors.password} </p>
+					<p
+						className={`my-4 text-sm font-thin text-red-500 md:text-lg transition-all duration-300`}
+					>
+						{formik.errors.password}
+					</p>
 				)}
 			</div>
 
 			<button
 				type="submit"
-				className="btn mt-2 lg:mt-10 bg-transparent focus:ring-4 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center text-navy-600 dark:text-green dark:border-green border border-navy-600 dark:hover:bg-greenTin transition-all duration-300"
+				className="flex w-full min-w-[150px] min-h-[50px] mt-8 text-lg font-medium transition-all duration-300 bg-transparent border rounded-lg btn lg:mt-8 focus:ring-4 focus:outline-none sm:w-auto hover:shadow-sm hover:-translate-y-2"
 			>
 				Login
 			</button>

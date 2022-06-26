@@ -13,27 +13,21 @@ module.exports = {
 			colors: {
 				transparent: "transparent",
 				current: "currentColor",
-				white: "#e6f1ff",
-				navy: {
-					200: "#233554",
-					400: "#112240",
-					600: "#0a192f",
-					800: "#020c1b",
+				black: {
+					400: "#1B1B1B",
+					600: "#141414",
+					800: "#000",
 				},
-				green: "#64ffda",
-				greenTin: "rgba(100,255,218,0.1)",
-				slate: {
-					200: "#ccd6f6",
-					400: "#a8b2d1",
-					600: "#8892b0",
-					800: "#495670",
+				white: {
+					200: "#fff",
+					400: "#F3F3F3",
+					800: "#E1E1E1",
 				},
 			},
 		},
 
 		fontFamily: {
-			"sans-serif": ["Inter", "sans-serif"],
-			monospace: ["Fira Code", "monospace"],
+			"dm-sans": ["DM Sans", "sans-serif"],
 		},
 
 		screens: {
