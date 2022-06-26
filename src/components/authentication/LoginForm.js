@@ -99,6 +99,8 @@ const LoginForm = () => {
 				)}
 			</div>
 
+			<h3 className="underline cursor-pointer">Forgot your password?</h3>
+
 			<button
 				type="submit"
 				className="flex w-full min-w-[150px] min-h-[50px] mt-8 text-lg font-medium transition-all duration-300 bg-transparent border rounded-lg btn lg:mt-8 focus:ring-4 focus:outline-none sm:w-auto hover:shadow-sm hover:-translate-y-2"
