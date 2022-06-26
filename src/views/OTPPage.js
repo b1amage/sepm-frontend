@@ -3,6 +3,7 @@ import OTPInput, { ResendOTP } from "otp-input-react";
 import otpImg from "../assets/otp-vector.png";
 
 const OTP_DIGIT_COUNT = 6;
+const OTP_EXPIRE_TIME = 30;
 
 const OTPPage = () => {
 	const [OTP, setOTP] = useState("");
@@ -51,7 +52,7 @@ const OTPPage = () => {
 				className="!grid grid-cols-6 my-8 place-items-center"
 			/>
 			<ResendOTP
-				maxTime={10}
+				maxTime={OTP_EXPIRE_TIME}
 				renderTime={renderTime}
 				className="relative flex flex-col text-white"
 				onResendClick={handleResendClick}
@@ -80,11 +81,11 @@ const renderTime = (remainingtime) => {
 };
 
 const renderButton = (props) => {
-	const { restProps } = props;
+	const { remainingTime, ...rest } = props;
 	return (
 		<button
-			{...restProps}
-			className="bg-transparent cursor-pointer relative z-10 md:text-xl lg:text-2xl border btn font-bold border-none dark:!text-slate-200 !text-navy-600 min-w-[200px] px-3 py-2 mx-auto hover:!text-green transition-all duration-300 lg:hover:!text-navy-800"
+			{...rest}
+			className="bg-transparent cursor-pointer relative z-10 md:text-xl lg:text-2xl border btn font-bold border-none dark:!text-slate-200 !text-navy-600 min-w-[200px] px-3 py-2 mx-auto hover:!text-green dark:hover:!text-green transition-all duration-300 lg:hover:!text-navy-800"
 		>
 			Resent
 		</button>
