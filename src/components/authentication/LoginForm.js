@@ -98,8 +98,12 @@ const LoginForm = () => {
 					</p>
 				)}
 			</div>
-
-			<h3 className="underline cursor-pointer">Forgot your password?</h3>
+			<div className="flex flex-wrap justify-between">
+				<h3 className="cursor-pointer">Signup</h3>
+				<h3 className="underline cursor-pointer">
+					Forgot your password?
+				</h3>
+			</div>
 
 			<button
 				type="submit"
