@@ -3,6 +3,7 @@ import OTPInput, { ResendOTP } from "otp-input-react";
 import { useParams } from "react-router-dom";
 import otpImg from "../assets/otp-vector.png";
 import axios from "axios";
+import { motion } from "framer-motion";
 
 const OTP_DIGIT_COUNT = 6;
 const OTP_EXPIRE_TIME = 90;
@@ -35,7 +36,13 @@ const OTPPage = () => {
 	};
 
 	return (
-		<div className="container px-5 py-10 mx-auto">
+		<motion.div
+			initial={{ scaleY: 0 }}
+			animate={{ scaleY: 1 }}
+			exit={{ scaleY: 0 }}
+			transition={{ duration: 0.5 }}
+			className="container px-5 py-10 mx-auto"
+		>
 			<div className="flex flex-col my-10 space-y-4">
 				<h3 className="text-2xl font-bold lg:text-4xl md:mb-2 lg:mb-5">
 					Enter your OTP code
@@ -80,7 +87,7 @@ const OTPPage = () => {
 			>
 				Verify
 			</button>
-		</div>
+		</motion.div>
 	);
 };
 

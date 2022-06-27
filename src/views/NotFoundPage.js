@@ -1,9 +1,21 @@
 import React from "react";
 import notFound from "../assets/not-found.png";
+import { motion } from "framer-motion";
 
 const NotFoundPage = () => {
 	return (
-		<div className="container flex flex-col items-center justify-center min-h-screen px-10 py-10 mx-auto">
+		<motion.div
+			initial={{ scaleY: 0 }}
+			animate={{ scaleY: 1 }}
+			exit={{ scaleY: 0 }}
+			transition={{ duration: 0.5 }}
+			// animate={{
+			// 	scale: [1, 2, 2, 1, 1],
+			// 	rotate: [0, 0, 270, 270, 0],
+			// 	borderRadius: ["20%", "20%", "50%", "50%", "20%"],
+			// }}
+			className="container flex flex-col items-center justify-center min-h-screen px-10 py-10 mx-auto"
+		>
 			<div className="flex flex-col items-center justify-center space-y-4 text-center dark:text-white-800">
 				<h1 className="text-6xl lg:text-[120px] font-bold dark:text-white-200">
 					404
@@ -24,7 +36,7 @@ const NotFoundPage = () => {
 					className="object-cover w-full h-full"
 				/>
 			</div>
-		</div>
+		</motion.div>
 	);
 };
 

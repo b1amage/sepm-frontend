@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { AiFillCheckCircle } from "react-icons/ai";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const useQuery = () => {
 	return new URLSearchParams(useLocation().search);
@@ -33,7 +34,13 @@ const VerifyEmailPage = () => {
 	}, [query, error]);
 
 	return (
-		<div className="container flex items-center justify-center h-screen px-10 py-5 mx-auto">
+		<motion.div
+			initial={{ scaleY: 0 }}
+			animate={{ scaleY: 1 }}
+			exit={{ scaleY: 0 }}
+			transition={{ duration: 0.5 }}
+			className="container flex items-center justify-center h-screen px-10 py-5 mx-auto"
+		>
 			{error ? (
 				<h1>Error</h1>
 			) : (
@@ -52,7 +59,7 @@ const VerifyEmailPage = () => {
 					</button>
 				</div>
 			)}
-		</div>
+		</motion.div>
 	);
 };
 
