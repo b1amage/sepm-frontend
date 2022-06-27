@@ -4,6 +4,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import OTPPage from "../views/OTPPage";
 import LoginPage from "../views/LoginPage";
 import AboutPage from "../views/AboutPage";
+import RegisterPage from "../views/RegisterPage";
 
 const AnimatedRoutes = () => {
 	const location = useLocation();
@@ -13,6 +14,7 @@ const AnimatedRoutes = () => {
 				<Route path="/otp" element={<OTPPage />} />
 				<Route path="/login" element={<LoginPage />} />
 				<Route path="/about" element={<AboutPage />} />
+				<Route path="/register" element={<RegisterPage />} />
 			</Routes>
 		</AnimatePresence>
 	);
