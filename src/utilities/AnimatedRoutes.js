@@ -20,7 +20,6 @@ const AnimatedRoutes = () => {
 				<Route path="/about" element={<AboutPage />} />
 				<Route path="/register" element={<RegisterPage />} />
 				<Route path="/verify-email" element={<VerifyEmailPage />} />
-				<Route path="/404" element={<NotFoundPage />} />
 				<Route path="*" element={<NotFoundPage />} />
 			</Routes>
 		</AnimatePresence>

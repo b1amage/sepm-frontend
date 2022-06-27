@@ -27,7 +27,6 @@ const OTPPage = () => {
 	};
 
 	const handleResendClick = () => {
-		// console.log("Resend button click");
 		sendOTP();
 	};
 

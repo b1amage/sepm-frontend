@@ -1,7 +1,7 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
 const LoginForm = () => {
@@ -53,7 +53,7 @@ const LoginForm = () => {
 						type="username"
 						id="username"
 						className="block w-full p-3 text-sm transition-all duration-300 bg-transparent border rounded-lg outline-none input placeholder:text-sm border-black-400 dark:border-white-400 md:text-lg placeholder:text-white focus:bg-white-200 dark:focus:bg-black-400"
-						placeholder="eg. s3877698@rmit.edu.vn"
+						placeholder="eg. baonguyen33"
 						required
 					/>
 					{formik.errors.username && (
@@ -66,7 +66,9 @@ const LoginForm = () => {
 				</div>
 
 				<div className="flex flex-wrap justify-between">
-					<h3 className="underline cursor-pointer">Signup</h3>
+					<Link to="/register">
+						<h3 className="underline cursor-pointer">Signup</h3>
+					</Link>
 				</div>
 
 				<button
