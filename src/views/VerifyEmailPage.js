@@ -4,7 +4,6 @@ import axios from "axios";
 import { useLocation, Link } from "react-router-dom";
 import { BsTypeH1 } from "react-icons/bs";
 import { MdError } from "react-icons/md";
-import { StatusCodes } from "http-status-codes";
 
 const useQuery = () => {
 	return new URLSearchParams(useLocation().search);
@@ -12,33 +11,33 @@ const useQuery = () => {
 
 const VerifyEmailPage = () => {
 	const [error, setError] = useState(false);
-	const [loading, setLoading] = useState(false);
+	// const [loading, setLoading] = useState(false);
 
 	const query = useQuery();
 
-	const verifyToken = async () => {
-		// setLoading(true);
-		try {
-			const response = await axios.post(
-				"http://localhost:3000/api/auth/verify-email",
-				{
-					verificationToken: query.get("token"),
-				}
-			);
-
-			console.log(response);
-			// setMsg(response.data.msg);
-		} catch (error) {
-			console.log(error.response);
-			// setError(true);
-		}
-		// setLoading(false);
-	};
-
 	useEffect(() => {
+		const verifyToken = async () => {
+			// setLoading(true);
+			try {
+				const response = await axios.post(
+					"http://localhost:3000/api/auth/verify-email",
+					{
+						verificationToken: query.get("token"),
+					}
+				);
+
+				console.log(response);
+
+				// setError(response.status !== 200);
+			} catch (error) {
+				console.log(error.response);
+				setError(true);
+			}
+			// setLoading(false);
+		};
+
 		verifyToken();
-		console.log("useEffect");
-	}, []);
+	}, [query, error]);
 
 	return (
 		<div className="container flex items-center justify-center h-screen px-10 py-5 mx-auto">
