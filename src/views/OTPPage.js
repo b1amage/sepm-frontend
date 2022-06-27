@@ -1,24 +1,38 @@
 import React, { useState } from "react";
 import OTPInput, { ResendOTP } from "otp-input-react";
+import { useParams } from "react-router-dom";
 import otpImg from "../assets/otp-vector.png";
+import axios from "axios";
 
 const OTP_DIGIT_COUNT = 6;
-const OTP_EXPIRE_TIME = 30;
+const OTP_EXPIRE_TIME = 90;
 
 const OTPPage = () => {
 	const [OTP, setOTP] = useState("");
+	let { hash, username } = useParams();
+
+	const sendOTP = async () => {
+		await axios
+			.post("http://localhost:3000/api/auth/verify-OTP", {
+				hash,
+				username,
+				otp: OTP,
+			})
+			.then(function (response) {
+				console.log(response);
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+	};
 
 	const handleResendClick = () => {
-		console.log("Resend button click");
+		// console.log("Resend button click");
+		sendOTP();
 	};
 
 	const handleVerifyClick = () => {
-		console.log("Verify click");
-		console.log(OTP);
-	};
-
-	const handleTimeComplete = () => {
-		console.log("Clear interval");
+		sendOTP();
 	};
 
 	return (
@@ -57,14 +71,13 @@ const OTPPage = () => {
 				className="relative flex flex-col"
 				onResendClick={handleResendClick}
 				renderButton={renderButton}
-				onTimerComplete={handleTimeComplete}
 			/>
 
 			<button
 				onClick={handleVerifyClick}
-				className={`mt-8 bg-black-400 text-white-200 hover:bg-black-400 hover:shadow-sm hover:-translate-y-2 btn ${
+				className={`${
 					OTP.length === 6 ? "block" : "hidden"
-				}  dark:text-black-600 dark:bg-white-400 min-w-[200px] md:min-w-[250px] lg:min-w-[300px] px-3 py-2 mx-auto transition-all duration-300`}
+				} mt-8 bg-black-400 text-white-200 hover:bg-black-400 hover:shadow-sm hover:-translate-y-2 btn dark:text-black-600 dark:bg-white-400 min-w-[200px] md:min-w-[250px] lg:min-w-[300px] px-3 py-2 mx-auto transition-all duration-300`}
 			>
 				Verify
 			</button>

@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import { AiFillCheckCircle } from "react-icons/ai";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
-// import { BsTypeH1 } from "react-icons/bs";
-// import { MdError } from "react-icons/md";
 
 const useQuery = () => {
 	return new URLSearchParams(useLocation().search);
@@ -11,13 +9,11 @@ const useQuery = () => {
 
 const VerifyEmailPage = () => {
 	const [error, setError] = useState(false);
-	// const [loading, setLoading] = useState(false);
 
 	const query = useQuery();
 
 	useEffect(() => {
 		const verifyToken = async () => {
-			// setLoading(true);
 			try {
 				const response = await axios.post(
 					"http://localhost:3000/api/auth/verify-email",
@@ -27,13 +23,10 @@ const VerifyEmailPage = () => {
 				);
 
 				console.log(response);
-
-				// setError(response.status !== 200);
 			} catch (error) {
 				console.log(error.response);
 				setError(true);
 			}
-			// setLoading(false);
 		};
 
 		verifyToken();

@@ -20,7 +20,6 @@ const RegisterForm = () => {
 		}),
 		onSubmit: (values) => {
 			const postData = async (values) => {
-				// http://localhost:3000/api/auth/register
 				axios
 					.post("http://localhost:3000/api/auth/register", values)
 					.then(function (response) {
