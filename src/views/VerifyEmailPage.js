@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { AiFillCheckCircle } from "react-icons/ai";
 import axios from "axios";
-import { useLocation, Link } from "react-router-dom";
-import { BsTypeH1 } from "react-icons/bs";
-import { MdError } from "react-icons/md";
+import { useLocation } from "react-router-dom";
+// import { BsTypeH1 } from "react-icons/bs";
+// import { MdError } from "react-icons/md";
 
 const useQuery = () => {
 	return new URLSearchParams(useLocation().search);
