@@ -3,6 +3,8 @@ import { AiFillCheckCircle } from "react-icons/ai";
 import axios from "axios";
 import { useLocation, Link } from "react-router-dom";
 import { BsTypeH1 } from "react-icons/bs";
+import { MdError } from "react-icons/md";
+import { StatusCodes } from "http-status-codes";
 
 const useQuery = () => {
 	return new URLSearchParams(useLocation().search);
@@ -15,23 +17,27 @@ const VerifyEmailPage = () => {
 	const query = useQuery();
 
 	const verifyToken = async () => {
-		setLoading(true);
+		// setLoading(true);
 		try {
-			const { data } = await axios.post(
+			const response = await axios.post(
 				"http://localhost:3000/api/auth/verify-email",
 				{
 					verificationToken: query.get("token"),
 				}
 			);
+
+			console.log(response);
+			// setMsg(response.data.msg);
 		} catch (error) {
-			// console.log(error.response);
-			setError(true);
+			console.log(error.response);
+			// setError(true);
 		}
-		setLoading(false);
+		// setLoading(false);
 	};
 
 	useEffect(() => {
 		verifyToken();
+		console.log("useEffect");
 	}, []);
 
 	return (
