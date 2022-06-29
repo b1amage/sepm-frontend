@@ -63,7 +63,7 @@ const AboutPage = () => {
 			transition={{ duration: 0.5 }}
 			className="container items-center justify-center h-screen px-10 py-5 mx-auto"
 		>
-			<h3 className="py-10 mb-20 text-6xl font-bold text-center uppercase lg:text-8xl">
+			<h3 className="py-10 mb-12 text-6xl font-bold text-center uppercase lg:text-8xl">
 				Members
 			</h3>
 
@@ -82,10 +82,6 @@ const AboutPage = () => {
 					modifier: 1,
 					slideShadows: false,
 				}}
-				// modules={[EffectFade]}
-				// effect="fade"
-				// navigation
-				// pagination={{ clickable: true }}
 			>
 				{members.length > 0 &&
 					members.map((item, index) => (
