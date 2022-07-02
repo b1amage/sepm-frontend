@@ -13,21 +13,15 @@ module.exports = {
 			colors: {
 				transparent: "transparent",
 				current: "currentColor",
-				black: {
-					400: "#1B1B1B",
-					600: "#141414",
-					800: "#000",
-				},
-				white: {
-					200: "#fff",
-					400: "#F3F3F3",
-					800: "#E1E1E1",
-				},
+				gray: "#F5F5F5",
+				white: "#fff",
+				red: "#BB2400",
+				black: "#242424",
 			},
 		},
 
 		fontFamily: {
-			"dm-sans": ["DM Sans", "sans-serif"],
+			"open-sans": ["Open Sans", "sans-serif"],
 		},
 
 		screens: {

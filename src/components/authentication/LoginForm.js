@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
+// import authenticationApi from "../../api/authenticationApi";
 
 const LoginForm = () => {
 	const navigate = useNavigate();
@@ -17,7 +18,10 @@ const LoginForm = () => {
 		onSubmit: (values) => {
 			const login = async (values) => {
 				await axios
-					.post("http://localhost:3000/api/auth/login", values)
+					.post(
+						"https://food-suggestion-rmit.herokuapp.com/api/auth/login",
+						values
+					)
 					.then(function (response) {
 						console.log(response);
 						navigate(
@@ -27,6 +31,7 @@ const LoginForm = () => {
 					.catch(function (error) {
 						console.log(error);
 					});
+				// authenticationApi.login(values, navigate);
 			};
 
 			login(values);
