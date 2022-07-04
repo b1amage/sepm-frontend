@@ -1,10 +1,10 @@
 import React from "react";
 import AboutCard from "../components/about/AboutCard";
 
-import baoImg from "../assets/bao-img.png";
-import longImg from "../assets/long-img.png";
-import duyImg from "../assets/duy-img.png";
-import tuanImg from "../assets/tuan-img.png";
+import baoImg from "../assets/img/bao-img.png";
+import longImg from "../assets/img/long-img.png";
+import duyImg from "../assets/img/duy-img.png";
+import tuanImg from "../assets/img/tuan-img.png";
 
 import { motion } from "framer-motion";
 import { SwiperSlide, Swiper } from "swiper/react";

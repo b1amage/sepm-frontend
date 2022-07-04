@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import OTPInput, { ResendOTP } from "otp-input-react";
 import { useParams } from "react-router-dom";
-import otpImg from "../assets/otp-vector.png";
+// import otpImg from "../../assets/otp.png";
 import axios from "axios";
 import { motion } from "framer-motion";
 
@@ -54,7 +54,7 @@ const OTPPage = () => {
 
 			<div className="flex items-center justify-center mx-auto overflow-hidden md:w-1/2 lg:w-1/3 md:mb-10 lg:mb-16">
 				<img
-					src={otpImg}
+					// src={otpImg}
 					alt="otp illustration"
 					className="w-full h-full lg:object-cover"
 				/>
