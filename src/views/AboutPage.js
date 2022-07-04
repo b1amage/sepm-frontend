@@ -61,7 +61,7 @@ const AboutPage = () => {
 			animate={{ scaleY: 1 }}
 			exit={{ scaleY: 0 }}
 			transition={{ duration: 0.5 }}
-			className="container items-center justify-center h-screen px-10 py-5 mx-auto"
+			className="items-center justify-center h-screen px-10 py-5 page-container"
 		>
 			<h3 className="py-10 mb-12 text-6xl font-bold text-center uppercase lg:text-8xl">
 				Members

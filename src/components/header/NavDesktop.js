@@ -1,17 +1,19 @@
 import React from "react";
 import { navContent } from "../../content/NavContent";
+import { Link } from "react-router-dom";
 
 const NavDesktop = () => {
 	return (
 		<div className="flex gap-4">
 			{navContent.length > 0 &&
 				navContent.map((item, index) => (
-					<li
+					<Link
 						className="p-2 text-lg font-semibold capitalize list-none transition-all duration-300 cursor-pointer hover:-translate-y-2 hover:text-red"
 						key={index}
+						to={item.to}
 					>
-						{item}
-					</li>
+						{item.title}
+					</Link>
 				))}
 		</div>
 	);

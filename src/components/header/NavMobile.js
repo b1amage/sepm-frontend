@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { navContent } from "../../content/NavContent";
+import { Link } from "react-router-dom";
 
-const NavMobile = ({ isShowNav }) => {
+const NavMobile = ({ isShowNav, onLinkClick }) => {
 	return ReactDOM.createPortal(
 		<>
 			<aside
@@ -15,12 +16,14 @@ const NavMobile = ({ isShowNav }) => {
 				<div className="flex flex-col p-10 mt-20 space-y-3 text-white">
 					{navContent.length > 0 &&
 						navContent.map((item, index) => (
-							<li
+							<Link
 								className="p-2 text-lg font-semibold capitalize list-none"
 								key={index}
+								to={item.to}
+								onClick={onLinkClick}
 							>
-								{item}
-							</li>
+								{item.title}
+							</Link>
 						))}
 				</div>
 			</aside>

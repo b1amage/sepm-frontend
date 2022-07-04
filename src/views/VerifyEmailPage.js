@@ -32,7 +32,7 @@ const VerifyEmailPage = () => {
 			animate={{ scaleY: 1 }}
 			exit={{ scaleY: 0 }}
 			transition={{ duration: 0.5 }}
-			className="container flex items-center justify-center h-screen px-10 py-5 mx-auto"
+			className="flex items-center justify-center h-screen px-10 py-5 page-container"
 		>
 			{error ? (
 				<div className="flex flex-col p-8 space-y-8">

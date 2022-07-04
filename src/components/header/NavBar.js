@@ -6,10 +6,16 @@ import NavMobile from "./NavMobile";
 
 const NavBar = () => {
 	const [isShowNav, setIsShowNav] = useState(false);
+	const [isBurgerOpen, setIsBurgerOpen] = useState(false);
 	const [isDesktop, setDesktop] = useState(window.innerWidth >= 976);
 
 	const updateMedia = () => {
 		setDesktop(window.innerWidth >= 976);
+	};
+
+	const handleBurgerClick = () => {
+		setIsBurgerOpen(!isBurgerOpen);
+		setIsShowNav(!isShowNav);
 	};
 
 	useEffect(() => {
@@ -17,18 +23,27 @@ const NavBar = () => {
 		return () => window.removeEventListener("resize", updateMedia);
 	});
 
+	const handleLinkClick = () => {
+		setIsShowNav(!isShowNav);
+		setIsBurgerOpen(!isBurgerOpen);
+	};
+
 	return (
 		<>
-			<div className="fixed top-0 flex items-center justify-between w-full px-10 py-12">
+			<div className="fixed top-0 z-[100] flex items-center justify-between w-full px-10 py-12">
 				{isDesktop ? (
 					<NavDesktop />
 				) : (
-					<BurgerButton onClick={() => setIsShowNav(!isShowNav)} />
+					<BurgerButton
+						isOpen={isBurgerOpen}
+						isShowNav={isShowNav}
+						onClick={handleBurgerClick}
+					/>
 				)}
 				<CartButton />
 			</div>
 
-			<NavMobile isShowNav={isShowNav} />
+			<NavMobile onLinkClick={handleLinkClick} isShowNav={isShowNav} />
 		</>
 	);
 };

@@ -12,7 +12,7 @@ const NotFoundPage = () => {
 			animate={{ scaleY: 1 }}
 			exit={{ scaleY: 0 }}
 			transition={{ duration: 0.5 }}
-			className="container flex flex-col items-center justify-center min-h-screen px-10 py-10 mx-auto text-center lg:my-12"
+			className="flex flex-col items-center justify-center min-h-screen px-10 py-10 text-center page-container lg:my-12"
 		>
 			<div className="flex items-center justify-center my-4 font-bold md:my-8 text-8xl md:text-9xl md:landscape:text-[136px]">
 				<h1>4</h1>

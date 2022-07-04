@@ -41,7 +41,7 @@ const OTPPage = () => {
 			animate={{ scaleY: 1 }}
 			exit={{ scaleY: 0 }}
 			transition={{ duration: 0.5 }}
-			className="container px-5 py-10 mx-auto"
+			className="px-5 py-10 page-container"
 		>
 			<div className="flex flex-col my-10 space-y-4">
 				<h3 className="text-2xl font-bold lg:text-4xl md:mb-2 lg:mb-5">

@@ -1,7 +1,7 @@
 import React from "react";
 
 const HomePage = () => {
-	return <div className="container mx-auto"></div>;
+	return <div className="page-container"></div>;
 };
 
 export default HomePage;

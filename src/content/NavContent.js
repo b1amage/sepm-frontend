@@ -1,9 +1,9 @@
 export const navContent = [
-	"home",
-	"about",
-	"dishes",
-	"filter",
-	"register",
-	"login",
-	"profile",
+	{ title: "home", to: "/" },
+	{ title: "about", to: "/about" },
+	{ title: "dishes", to: "/dishes" },
+	{ title: "filter", to: "/filter" },
+	{ title: "register", to: "/register" },
+	{ title: "login", to: "/login" },
+	{ title: "profile", to: "/profile" },
 ];
