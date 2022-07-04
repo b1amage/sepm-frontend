@@ -8,11 +8,11 @@
 	}
 
 	body {
-		@apply m-0 scroll-smooth font-open-sans antialiased text-black bg-white transition-all duration-500 dark:bg-black dark:text-white;
+		@apply m-0 scroll-smooth overflow-y-scroll font-open-sans antialiased text-black bg-white transition-all duration-500 dark:bg-black dark:text-white overflow-x-hidden;
 	}
 
 	.page-container {
-		@apply mx-auto container py-12;
+		@apply mx-auto container p-10;
 	}
 }
 

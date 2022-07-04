@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import OTPInput, { ResendOTP } from "otp-input-react";
 import { useParams } from "react-router-dom";
-// import otpImg from "../../assets/otp.png";
 import axios from "axios";
 import { motion } from "framer-motion";
-
+import noodle from "../assets/svg/noodle.svg";
+import ImgFrame from "../utilities/ImgFrame";
+import NavBar from "../components/header/NavBar";
+import Button from "../utilities/Button";
 const OTP_DIGIT_COUNT = 6;
 const OTP_EXPIRE_TIME = 90;
 
@@ -41,10 +43,11 @@ const OTPPage = () => {
 			animate={{ scaleY: 1 }}
 			exit={{ scaleY: 0 }}
 			transition={{ duration: 0.5 }}
-			className="px-5 py-10 page-container"
+			className="page-container"
 		>
-			<div className="flex flex-col my-10 space-y-4">
-				<h3 className="text-2xl font-bold lg:text-4xl md:mb-2 lg:mb-5">
+			<NavBar />
+			<div className="flex flex-col space-y-4 lg:text-center">
+				<h3 className="text-2xl font-bold lg:text-5xl md:mb-2 lg:mb-5">
 					Enter your OTP code
 				</h3>
 				<p className="font-thin md:text-xl lg:text-2xl md:font-medium">
@@ -52,13 +55,11 @@ const OTPPage = () => {
 				</p>
 			</div>
 
-			<div className="flex items-center justify-center mx-auto overflow-hidden md:w-1/2 lg:w-1/3 md:mb-10 lg:mb-16">
-				<img
-					// src={otpImg}
-					alt="otp illustration"
-					className="w-full h-full lg:object-cover"
-				/>
-			</div>
+			<ImgFrame
+				src={noodle}
+				alt="noodle svg"
+				className="mx-auto md:w-1/2 lg:w-1/3"
+			/>
 
 			<OTPInput
 				value={OTP}
@@ -68,7 +69,7 @@ const OTPPage = () => {
 				otpType="number"
 				disabled={false}
 				secure={false}
-				inputClassName="!m-0 text-center min-w-[50px] lg:min-w-[100px] lg:min-h-[100px] md:min-w-[75px] md:min-h-[75px] block text-xl font-bold min-h-[50px] dark:bg-white-400 bg-black-400 outline-none input border-none text-white-200 dark:text-black-400 p-0 md:text-2xl lg:text-4xl"
+				inputClassName="!m-0 text-center min-w-[50px] lg:min-w-[100px] lg:min-h-[100px] md:min-w-[75px] md:min-h-[75px] block text-xl font-bold min-h-[50px] bg-darkRed text-white outline-none input border-none text-white-200 dark:text-black-400 p-0 md:text-2xl lg:text-4xl"
 				className="!grid grid-cols-6 my-8 place-items-center"
 			/>
 			<ResendOTP
@@ -79,14 +80,13 @@ const OTPPage = () => {
 				renderButton={renderButton}
 			/>
 
-			<button
+			<Button
+				content="Verify"
 				onClick={handleVerifyClick}
 				className={`${
 					OTP.length === 6 ? "block" : "hidden"
-				} mt-8 bg-black-400 text-white-200 hover:bg-black-400 hover:shadow-sm hover:-translate-y-2 btn dark:text-black-600 dark:bg-white-400 min-w-[200px] md:min-w-[250px] lg:min-w-[300px] px-3 py-2 mx-auto transition-all duration-300`}
-			>
-				Verify
-			</button>
+				} mt-4 md:text-xl btn w-full transition-all duration-300 md:h-[60px]`}
+			/>
 		</motion.div>
 	);
 };
@@ -102,12 +102,13 @@ const renderTime = (remainingtime) => {
 const renderButton = (props) => {
 	const { remainingTime, ...rest } = props;
 	return (
-		<button
+		<Button
+			content="Resend"
 			{...rest}
-			className="bg-transparent dark:text-white-400 text-black-600 cursor-pointer md:text-xl lg:text-2xl border btn font-bold border-none min-w-[200px] px-3 py-2 mx-auto transition-all"
+			className="bg-transparent hover:bg-transparent text-black-600 cursor-pointer md:text-xl lg:text-2xl border btn font-bold border-none min-w-[200px] px-3 py-2 mx-auto transition-all"
 		>
 			Resent
-		</button>
+		</Button>
 	);
 };
 

@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import authenticationApi from "../../api/authenticationApi";
 import Modal from "./Modal";
 import Loading from "../../utilities/Loading";
+import Button from "../../utilities/Button";
 
 const RegisterForm = () => {
 	const [isLoading, setIsLoading] = useState(false);
@@ -40,20 +41,22 @@ const RegisterForm = () => {
 	return (
 		<>
 			{isLoading ? (
-				<Loading />
+				<div className="flex items-center justify-center">
+					<Loading />
+				</div>
 			) : isLoaded ? (
 				<Modal />
 			) : (
 				<form
 					onSubmit={formik.handleSubmit}
-					className="w-full mx-auto rounded-lg ld:py-6 lg:px-8 lg:w-1/2 md:w-2/3"
+					className="w-full mx-auto rounded-lg ld:py-6 lg:px-8 md:w-2/3 lg:w-1/2"
 				>
 					<div className="mb-6 md:mb-10 lg:mb-16">
 						<label
 							htmlFor="username"
-							className="block mb-2 text-sm font-bold lg:text-lg"
+							className="block mb-2 text-sm font-bold uppercase lg:text-lg"
 						>
-							Your username
+							username
 						</label>
 						<input
 							value={formik.values.username}
@@ -61,7 +64,7 @@ const RegisterForm = () => {
 							autoComplete="off"
 							type="username"
 							id="username"
-							className="block w-full p-3 text-sm transition-all duration-300 bg-transparent border rounded-lg outline-none input placeholder:text-sm border-black-400 dark:border-white-400 md:text-lg placeholder:text-white focus:bg-white-200 dark:focus:bg-black-400"
+							className="block w-full p-3 text-sm transition-all duration-300 bg-transparent border border-black rounded-lg outline-none dark:border-white input placeholder:text-sm placeholder:text-black border-black-400 dark:border-white-400 md:text-lg dark:placeholder:text-white"
 							placeholder="eg. baonguyen33"
 							required
 						/>
@@ -69,9 +72,9 @@ const RegisterForm = () => {
 					<div className="mb-6 md:mb-10 lg:mb-16">
 						<label
 							htmlFor="email"
-							className="block mb-2 text-sm font-bold lg:text-lg"
+							className="block mb-2 text-sm font-bold uppercase font-bol lg:text-lg"
 						>
-							Your email
+							Email
 						</label>
 						<input
 							value={formik.values.email}
@@ -79,18 +82,21 @@ const RegisterForm = () => {
 							autoComplete="off"
 							type="email"
 							id="email"
-							className="block w-full p-3 text-sm transition-all duration-300 bg-transparent border rounded-lg outline-none input placeholder:text-sm border-black-400 dark:border-white-400 md:text-lg placeholder:text-white focus:bg-white-200 dark:focus:bg-black-400"
+							className="block w-full p-3 text-sm transition-all duration-300 bg-transparent border border-black rounded-lg outline-none dark:border-white input placeholder:text-sm placeholder:text-black border-black-400 md:text-lg dark:placeholder:text-white"
 							placeholder="eg. s3877698@rmit.edu.vn"
 							required
 						/>
 					</div>
 
-					<button
+					<Button
 						type="submit"
-						className="flex w-full min-w-[150px] min-h-[50px] mt-8 text-lg font-medium transition-all duration-300 bg-transparent border rounded-lg btn lg:mt-8 focus:ring-4 focus:outline-none sm:w-auto hover:shadow-sm hover:-translate-y-2"
-					>
+						content="Register"
+						className="w-full mt-10"
+					/>
+
+					{/* <button className="flex w-full min-w-[150px] min-h-[50px] mt-8 text-lg font-medium transition-all duration-300 bg-transparent border rounded-lg btn lg:mt-8 focus:ring-4 focus:outline-none sm:w-auto hover:shadow-sm hover:-translate-y-2">
 						Register
-					</button>
+					</button> */}
 				</form>
 			)}
 		</>
