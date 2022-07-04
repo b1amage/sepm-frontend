@@ -12,26 +12,28 @@ const NotFoundPage = () => {
 			animate={{ scaleY: 1 }}
 			exit={{ scaleY: 0 }}
 			transition={{ duration: 0.5 }}
-			className="container flex flex-col items-center justify-center min-h-screen px-10 py-10 mx-auto"
+			className="container flex flex-col items-center justify-center min-h-screen px-10 py-10 mx-auto text-center"
 		>
-			<div className="flex items-center justify-center my-4 font-bold text-8xl">
+			<div className="flex items-center justify-center my-4 font-bold md:my-8 text-8xl">
 				<h1>4</h1>
-				<ImgFrame src={rice} className="w-1/4 mx-8" />
+				<ImgFrame src={rice} className="w-1/4 mx-8 md:w-1/3" />
 				<h1>4</h1>
 			</div>
 
-			<h1 className="text-3xl font-bold uppercase">Not found</h1>
-			<h3 className="mt-4 mb-8 text-2xl font-semibold text-center">
+			<h1 className="text-3xl font-bold uppercase md:text-5xl">
+				Not found
+			</h1>
+			<h3 className="mt-4 mb-8 text-2xl font-semibold text-center md:mb-12 md:mt-6 md:text-3xl">
 				Sorry, we were unable to find that page
 			</h3>
-			<p className="w-4/5 mx-auto mb-20 text-center">
+			<p className="w-4/5 mx-auto mb-20 text-center md:text-xl landscape:md:text-2xl">
 				Please try check your dictation or try another page
 			</p>
 
-			<Link to="/" className="w-full">
+			<Link to="/" className="w-full text-center">
 				<Button
 					content="Back to home"
-					className="w-full text-lg h-[60px] font-semibold"
+					className="w-full landscape:w-3/5 md:w-4/5 self-center text-lg md:text-xl h-[60px] md:h-[70px] font-bold"
 				/>
 			</Link>
 		</motion.div>
