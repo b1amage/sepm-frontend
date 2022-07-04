@@ -12,11 +12,11 @@ const NotFoundPage = () => {
 			animate={{ scaleY: 1 }}
 			exit={{ scaleY: 0 }}
 			transition={{ duration: 0.5 }}
-			className="container flex flex-col items-center justify-center min-h-screen px-10 py-10 mx-auto text-center"
+			className="container flex flex-col items-center justify-center min-h-screen px-10 py-10 mx-auto text-center lg:my-12"
 		>
-			<div className="flex items-center justify-center my-4 font-bold md:my-8 text-8xl">
+			<div className="flex items-center justify-center my-4 font-bold md:my-8 text-8xl md:text-9xl md:landscape:text-[136px]">
 				<h1>4</h1>
-				<ImgFrame src={rice} className="w-1/4 mx-8 md:w-1/3" />
+				<ImgFrame src={rice} className="w-1/4 mx-8 md:w-1/3 lg:w-1/2" />
 				<h1>4</h1>
 			</div>
 
@@ -33,7 +33,7 @@ const NotFoundPage = () => {
 			<Link to="/" className="w-full text-center">
 				<Button
 					content="Back to home"
-					className="w-full landscape:w-3/5 md:w-4/5 self-center text-lg md:text-xl h-[60px] md:h-[70px] font-bold"
+					className="w-full landscape:md:w-3/5 xl:!w-1/2 md:w-4/5 self-center text-lg md:text-xl h-[60px] md:h-[70px] font-bold"
 				/>
 			</Link>
 		</motion.div>

@@ -11,7 +11,11 @@ const CartButton = ({ amount }) => {
 				className="w-[50px] h-[50px] relative"
 				content={<ImgFrame src={cart} alt="cart svg" />}
 				optional={
-					<div className="absolute flex items-center justify-center w-3 h-3 bg-white rounded-full top-2 left-8">
+					<div
+						className={`absolute flex items-center justify-center w-3 h-3 bg-white rounded-full top-2 left-8 ${
+							amount > 0 ? "block" : "hidden"
+						}`}
+					>
 						<span className="text-[8px] font-semibold text-red">
 							{amount || 1}
 						</span>
