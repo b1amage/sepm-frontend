@@ -1,8 +1,10 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Button from "../../utilities/Button";
+
 // import authenticationApi from "../../api/authenticationApi";
 
 const LoginForm = () => {
@@ -41,15 +43,15 @@ const LoginForm = () => {
 	return (
 		<>
 			<form
-				className="w-full mx-auto rounded-lg ld:py-6 lg:px-8 lg:w-1/2 md:w-2/3"
+				className="w-full mx-auto mt-16 rounded-lg ld:py-6 lg:px-8 lg:w-1/2 md:w-2/3"
 				onSubmit={formik.handleSubmit}
 			>
 				<div className="mb-6 md:mb-10 lg:mb-16">
 					<label
 						htmlFor="username"
-						className="block mb-2 text-sm font-bold lg:text-lg"
+						className="block mb-2 text-sm font-bold uppercase lg:text-lg"
 					>
-						Your username
+						username
 					</label>
 					<input
 						value={formik.values.username}
@@ -57,7 +59,7 @@ const LoginForm = () => {
 						autoComplete="off"
 						type="username"
 						id="username"
-						className="block w-full p-3 text-sm transition-all duration-300 bg-transparent border rounded-lg outline-none input placeholder:text-sm border-black-400 dark:border-white-400 md:text-lg placeholder:text-white focus:bg-white-200 dark:focus:bg-black-400"
+						className="block w-full p-3 text-sm transition-all duration-300 bg-transparent border border-black rounded-lg outline-none dark:border-white input placeholder:text-sm placeholder:text-black border-black-400 dark:border-white-400 md:text-lg dark:placeholder:text-white"
 						placeholder="eg. baonguyen33"
 						required
 					/>
@@ -70,18 +72,11 @@ const LoginForm = () => {
 					)}
 				</div>
 
-				<div className="flex flex-wrap justify-between">
-					<Link to="/register">
-						<h3 className="underline cursor-pointer">Signup</h3>
-					</Link>
-				</div>
-
-				<button
+				<Button
 					type="submit"
-					className="flex w-full min-w-[150px] min-h-[50px] mt-8 text-lg font-medium transition-all duration-300 bg-transparent border rounded-lg btn lg:mt-8 focus:ring-4 focus:outline-none sm:w-auto hover:shadow-sm hover:-translate-y-2"
-				>
-					Login
-				</button>
+					content="Login"
+					className="w-full h-[50px] text-lg mt-10"
+				/>
 			</form>
 		</>
 	);

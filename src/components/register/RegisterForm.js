@@ -93,10 +93,6 @@ const RegisterForm = () => {
 						content="Register"
 						className="w-full mt-10"
 					/>
-
-					{/* <button className="flex w-full min-w-[150px] min-h-[50px] mt-8 text-lg font-medium transition-all duration-300 bg-transparent border rounded-lg btn lg:mt-8 focus:ring-4 focus:outline-none sm:w-auto hover:shadow-sm hover:-translate-y-2">
-						Register
-					</button> */}
 				</form>
 			)}
 		</>

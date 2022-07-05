@@ -1,9 +1,11 @@
 import React from "react";
 
-const Title = ({ content }) => {
+const Title = ({ children, className }) => {
 	return (
-		<h3 className="text-3xl font-bold text-center capitalize">
-			{content || "Title"}
+		<h3
+			className={`mb-5 text-3xl font-bold text-center uppercase md:text-5xl lg:text-6xl ${className}`}
+		>
+			{children || "Title"}
 		</h3>
 	);
 };
