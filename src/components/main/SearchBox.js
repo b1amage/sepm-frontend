@@ -12,7 +12,8 @@ const SearchBox = () => {
 			/>
 			<ImgFrame
 				src={search}
-				className="h-full p-3 rounded-md w-14 bg-red"
+				imgClassName="w-6 h-6"
+				className="flex items-center justify-center h-full p-2 rounded-md w-14 bg-red"
 			/>
 		</div>
 	);

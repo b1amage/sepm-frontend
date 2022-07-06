@@ -3,7 +3,7 @@ import ProductCategory from "./ProductCategory";
 
 const ProductList = () => {
 	return (
-		<div>
+		<div className="p-4 md:p-8">
 			{Array(5)
 				.fill()
 				.map((_, index) => (

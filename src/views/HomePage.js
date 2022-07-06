@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../components/footer/Footer";
 import NavBar from "../components/header/NavBar";
 import Banner from "../components/main/Banner";
 import ProductList from "../components/main/ProductList";
@@ -12,6 +13,7 @@ const HomePage = () => {
 			<SearchBox />
 
 			<ProductList />
+			<Footer />
 		</div>
 	);
 };
