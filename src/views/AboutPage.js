@@ -10,6 +10,8 @@ import { motion } from "framer-motion";
 import { SwiperSlide, Swiper } from "swiper/react";
 import SwiperCore, { Navigation, Pagination, EffectCoverflow } from "swiper";
 import "swiper/scss";
+import NavBar from "../components/header/NavBar";
+import Footer from "../components/footer/Footer";
 
 const members = [
 	{
@@ -63,6 +65,7 @@ const AboutPage = () => {
 			transition={{ duration: 0.5 }}
 			className="items-center justify-center h-screen px-10 py-5 page-container"
 		>
+			<NavBar />
 			<h3 className="py-10 mb-12 text-6xl font-bold text-center uppercase lg:text-8xl">
 				Members
 			</h3>
@@ -96,6 +99,8 @@ const AboutPage = () => {
 						</SwiperSlide>
 					))}
 			</Swiper>
+
+			<Footer />
 		</motion.div>
 	);
 };
