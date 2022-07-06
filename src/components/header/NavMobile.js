@@ -7,7 +7,7 @@ const NavMobile = ({ isShowNav, onLinkClick }) => {
 	return ReactDOM.createPortal(
 		<>
 			<aside
-				className={`transition-all duration-300 absolute inset-0 bg-darkRed right-1/2 md:landscape:right-2/3 md:right-3/5 ${
+				className={`transition-all duration-300 absolute inset-0 bg-darkRed right-1/2 md:landscape:right-2/3 z-[200] md:right-3/5 ${
 					isShowNav
 						? "translate-x-0 opacity-1"
 						: "-translate-x-full opacity-0"

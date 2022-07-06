@@ -17,7 +17,7 @@ const BurgerButton = ({ onClick, isOpen }) => {
 			onClick={onClick}
 			disabled={false}
 			content={Burger}
-			className="w-[50px] h-[50px] z-50 lg:hidden"
+			className="w-[50px] h-[50px] z-[300] lg:hidden"
 		/>
 	);
 };

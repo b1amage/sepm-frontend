@@ -31,7 +31,7 @@ const RegisterPage = () => {
 
 			<RegisterForm />
 
-			<ImgFrame src={rice} className="w-1/3 mx-auto mt-10 lg:w-1/4" />
+			<ImgFrame src={rice} className="w-1/2 mx-auto mt-10 lg:w-1/4" />
 		</motion.div>
 	);
 };
