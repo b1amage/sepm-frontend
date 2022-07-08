@@ -4,30 +4,23 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
 	return (
-		<footer className="p-4 mt-4 border-t sm:p-6">
-			<div className="md:flex md:justify-between">
-				<div className="mb-6 md:mb-0">
-					<a
-						href="https://flowbite.com/"
-						className="flex items-center"
-					>
-						<img
-							src={rmit}
-							className="h-8 mr-3"
-							alt="FlowBite Logo"
-						/>
-						<span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+		<footer className="p-4 pt-0 sm:p-6 lg:text-xl">
+			<div className="md:flex md:flex-col md:justify-between">
+				<div className="mb-6 md:mr-8 md:mb-0">
+					<li href="" className="flex items-center mb-7">
+						<img src={rmit} className="h-8 mr-3" alt="" />
+						<span className="self-center text-2xl font-semibold md:text-3xl whitespace-nowrap dark:text-white">
 							RMIT Team
 						</span>
-					</a>
+					</li>
 				</div>
-				<div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-					<div>
-						<h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+				<div className="grid grid-cols-2 gap-y-6 md:gap-x-1 gap-x-8 sm:gap-6 sm:grid-cols-3">
+					<div className="md:px-8">
+						<h2 className="mb-2 text-sm font-bold text-left text-gray-900 uppercase lg:text-[20px] dark:text-white">
 							Resources
 						</h2>
 						<ul className="text-gray-600 dark:text-gray-400">
-							<li className="mb-4">
+							<li className="mb-2">
 								<Link to="/about" className="hover:underline">
 									About us
 								</Link>
@@ -42,12 +35,12 @@ const Footer = () => {
 							</li>
 						</ul>
 					</div>
-					<div>
-						<h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+					<div className="md:px-8">
+						<h2 className="mb-2 text-sm font-bold text-gray-900 uppercase lg:text-[20px] dark:text-white">
 							Follow us
 						</h2>
 						<ul className="text-gray-600 dark:text-gray-400">
-							<li className="mb-4">
+							<li className="mb-2">
 								<a
 									href="https://github.com/whisky-lover/sepm-frontend"
 									className="hover:underline "
@@ -57,12 +50,12 @@ const Footer = () => {
 							</li>
 						</ul>
 					</div>
-					<div>
-						<h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+					<div className="col-span-2 md:col-span-1 md:px-8">
+						<h2 className="w-full mb-2 text-sm font-bold text-left text-gray-900 uppercase lg:text-[20px] dark:text-white">
 							Legal
 						</h2>
-						<ul className="text-gray-600 dark:text-gray-400">
-							<li className="mb-4">
+						<ul className="w-full text-left text-gray-600 dark:text-gray-400">
+							<li className="mb-2">
 								<a
 									href="https://github.com/whisky-lover/sepm-frontend/blob/main/README.md"
 									className="hover:underline"

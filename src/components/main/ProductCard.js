@@ -5,7 +5,7 @@ import star from "../../assets/svg/star.svg";
 
 const ProductCard = ({ starCount }) => {
 	return (
-		<div className="grid shrink-0 snap-start grid-cols-3 gap-3 md:gap-6 p-2 overflow-hidden rounded-lg place-items-center h-[150px] md:h-[175px] w-full max-w-[350px] mr-3">
+		<div className="grid shadow-xl shrink-0 snap-start grid-cols-3 gap-3 md:gap-6 p-2 overflow-hidden rounded-lg place-items-center h-[150px] md:h-[175px] w-full max-w-[350px] mr-3">
 			<ImgFrame
 				className="w-full h-full md:max-w-[175px] md:max-h-[120px] max-w-[120px] max-h-[100px] rounded-lg overflow-hidden"
 				src={
@@ -16,7 +16,7 @@ const ProductCard = ({ starCount }) => {
 			<div className="flex flex-col items-start justify-start w-full h-full col-span-2 col-start-2">
 				<div className="mb-1">
 					<h3 className="mt-2 font-bold md:text-lg">Cheese Cake</h3>
-					<div className="text-[10px] md:text-sm font-thin">
+					<div className="text-[10px] md:text-sm font-normal">
 						<h6>Sorento</h6>
 						<p>Floor 1 Build 10</p>
 					</div>

@@ -22,7 +22,7 @@ module.exports = {
 		},
 
 		fontFamily: {
-			"open-sans": ["Open Sans", "sans-serif"],
+			sans: ["Josefin Sans", "sans-serif"],
 		},
 
 		screens: {

@@ -30,7 +30,7 @@ const NavBar = () => {
 
 	return (
 		<>
-			<div className="z-[100] flex items-center justify-between w-full py-8">
+			<div className="z-[100] flex items-center justify-between w-full pb-6">
 				{isDesktop ? (
 					<NavDesktop />
 				) : (

@@ -8,7 +8,7 @@ const NavDesktop = () => {
 			{navContent.length > 0 &&
 				navContent.map((item, index) => (
 					<Link
-						className="p-2 text-lg font-semibold capitalize list-none transition-all duration-300 cursor-pointer hover:-translate-y-2 hover:text-red"
+						className="p-2 text-2xl font-semibold capitalize list-none transition-all duration-300 cursor-pointer hover:-translate-y-2 hover:text-red"
 						key={index}
 						to={item.to}
 					>

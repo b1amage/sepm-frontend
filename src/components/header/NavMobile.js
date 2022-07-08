@@ -17,7 +17,7 @@ const NavMobile = ({ isShowNav, onLinkClick }) => {
 					{navContent.length > 0 &&
 						navContent.map((item, index) => (
 							<Link
-								className="p-2 text-lg font-semibold capitalize list-none"
+								className="p-2 text-lg font-semibold capitalize list-none md:text-xl"
 								key={index}
 								to={item.to}
 								onClick={onLinkClick}
