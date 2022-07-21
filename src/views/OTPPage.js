@@ -16,11 +16,15 @@ const OTPPage = () => {
 
 	const sendOTP = async () => {
 		await axios
-			.post("http://localhost:3000/api/auth/verify-OTP", {
-				hash,
-				username,
-				otp: OTP,
-			})
+			.post(
+				"https://food-suggestion-rmit.herokuapp.com/api/auth/verify-OTP",
+				{
+					hash,
+					username,
+					otp: OTP,
+				},
+				{ withCredentials: true }
+			)
 			.then(function (response) {
 				console.log(response);
 			})

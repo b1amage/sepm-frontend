@@ -17,23 +17,23 @@ const NotFoundPage = () => {
 			// className="flex flex-col items-center justify-center min-h-screen px-10 py-10 text-center page-container lg:my-12"
 		>
 			<NavBar />
-			<div className="flex items-center justify-center my-4 font-bold md:my-8 text-8xl md:text-9xl md:landscape:text-[136px]">
-				<h1>4</h1>
+			<div className="flex items-center justify-center my-4 font-bold md:my-8 text-8xl md:text-9xl md:landscape:text-[136px] lg:mt-[125px]">
+				<h1 className="translate-x-4">4</h1>
 				<ImgFrame
 					src={rice}
 					className="w-1/4 mx-8 md:w-1/3 lg:w-[15%] xl:w-[10%]"
 				/>
-				<h1>4</h1>
+				<h1 className="-translate-x-4">4</h1>
 			</div>
 
 			<h1 className="mt-5 text-3xl font-bold uppercase md:text-5xl">
 				Not found
 			</h1>
-			<h3 className="mt-4 mb-8 text-2xl font-semibold text-center md:mb-12 md:mt-6 md:text-3xl">
+			<h3 className="w-4/5 mx-auto mt-4 mb-4 text-2xl font-semibold text-center md:mb-8 md:mt-6 md:text-3xl">
 				Sorry, we were unable to find that page
 			</h3>
-			<p className="w-4/5 mx-auto mb-20 text-center md:text-xl landscape:md:text-2xl">
-				Please try check your dictation or try another page
+			<p className="w-[79%] mx-auto mb-12 text-center md:text-xl landscape:md:text-2xl">
+				Please try checking your dictation or try another page
 			</p>
 
 			<Link to="/" className="w-full text-center">
