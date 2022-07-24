@@ -8,6 +8,7 @@ import RegisterPage from "../views/RegisterPage";
 import HomePage from "../views/HomePage";
 import VerifyEmailPage from "../views/VerifyEmailPage";
 import NotFoundPage from "../views/NotFoundPage";
+import DetailPage from "../views/DetailPage";
 
 const AnimatedRoutes = () => {
 	const location = useLocation();
@@ -15,6 +16,7 @@ const AnimatedRoutes = () => {
 		<AnimatePresence>
 			<Routes location={location} key={location.pathname}>
 				<Route path="/" element={<HomePage />} />
+				<Route path="/detail/:foodId" element={<DetailPage />} />
 				<Route path="/otp/:username/:hash" element={<OTPPage />} />
 				<Route path="/login" element={<LoginPage />} />
 				<Route path="/about" element={<AboutPage />} />

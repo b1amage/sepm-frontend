@@ -17,7 +17,7 @@ const OTPPage = () => {
 	const sendOTP = async () => {
 		await axios
 			.post(
-				"https://food-suggestion-rmit.herokuapp.com/api/auth/verify-OTP",
+				"http://localhost:3000/api/auth/verify-OTP",
 				{
 					hash,
 					username,
@@ -27,6 +27,10 @@ const OTPPage = () => {
 			)
 			.then(function (response) {
 				console.log(response);
+				localStorage.setItem(
+					"user",
+					JSON.stringify(response.data.user)
+				);
 			})
 			.catch(function (error) {
 				console.log(error);

@@ -1,4 +1,6 @@
 [[redirects]]
-  from = "/*"
-  to = "/"
+  from = "/api/*"
+  to = "https://food-suggestion-rmit.heroku/api/:splat"
   status = 200
+  force = true
+  headers = {X-From = "Netlify"}
