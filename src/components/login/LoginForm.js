@@ -20,10 +20,7 @@ const LoginForm = () => {
 		onSubmit: (values) => {
 			const login = async (values) => {
 				await axios
-					.post(
-						"https://food-suggestion-rmit.herokuapp.com/api/auth/login",
-						values
-					)
+					.post("/api/auth/login", values)
 					.then(function (response) {
 						console.log(response);
 						navigate(

@@ -17,7 +17,7 @@ const OTPPage = () => {
 	const sendOTP = async () => {
 		await axios
 			.post(
-				"http://localhost:3000/api/auth/verify-OTP",
+				"/api/auth/verify-OTP",
 				{
 					hash,
 					username,

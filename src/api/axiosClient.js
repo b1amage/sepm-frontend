@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosClient = axios.create({
-	baseURL: "https://food-suggestion-rmit.herokuapp.com/",
+	baseURL: "",
 	headers: {
 		"Content-Type": "application/json",
 	},
