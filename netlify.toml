@@ -1,6 +1,6 @@
 [[redirects]]
   from = "/*"
-  to = "https://rmit-what-to-eat.netlify.app"
+  to = "https://food-suggestion-rmit.herokuapp.com"
   status = 200
   force = true
   headers = {X-From = "Netlify"}
