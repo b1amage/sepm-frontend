@@ -9,6 +9,7 @@ import HomePage from "../views/HomePage";
 import VerifyEmailPage from "../views/VerifyEmailPage";
 import NotFoundPage from "../views/NotFoundPage";
 import DetailPage from "../views/DetailPage";
+import ProfilePage from "../views/ProfilePage";
 
 const AnimatedRoutes = () => {
 	const location = useLocation();
@@ -22,6 +23,8 @@ const AnimatedRoutes = () => {
 				<Route path="/about" element={<AboutPage />} />
 				<Route path="/register" element={<RegisterPage />} />
 				<Route path="/verify-email" element={<VerifyEmailPage />} />
+				<Route path="/profile" element={<ProfilePage />} />
+
 				<Route path="*" element={<NotFoundPage />} />
 			</Routes>
 		</AnimatePresence>
