@@ -3,6 +3,7 @@ import BurgerButton from "./BurgerButton";
 import CartButton from "./CartButton";
 import NavDesktop from "./NavDesktop";
 import NavMobile from "./NavMobile";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
 	const [isShowNav, setIsShowNav] = useState(false);
@@ -40,7 +41,9 @@ const NavBar = () => {
 						onClick={handleBurgerClick}
 					/>
 				)}
-				<CartButton />
+				<Link to="/cart">
+					<CartButton />
+				</Link>
 			</div>
 
 			<NavMobile onLinkClick={handleLinkClick} isShowNav={isShowNav} />
