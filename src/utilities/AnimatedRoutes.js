@@ -10,6 +10,7 @@ import VerifyEmailPage from "../views/VerifyEmailPage";
 import NotFoundPage from "../views/NotFoundPage";
 import DetailPage from "../views/DetailPage";
 import ProfilePage from "../views/ProfilePage";
+import CartPage from "../views/CartPage";
 
 const AnimatedRoutes = () => {
 	const location = useLocation();
@@ -24,6 +25,7 @@ const AnimatedRoutes = () => {
 				<Route path="/register" element={<RegisterPage />} />
 				<Route path="/verify-email" element={<VerifyEmailPage />} />
 				<Route path="/profile" element={<ProfilePage />} />
+				<Route path="/cart" element={<CartPage />} />
 
 				<Route path="*" element={<NotFoundPage />} />
 			</Routes>
