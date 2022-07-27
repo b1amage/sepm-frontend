@@ -6,6 +6,7 @@ const Counter = () => {
 	return (
 		<div className="flex space-x-2 text-lg">
 			<p
+				className="cursor-pointer"
 				onClick={() =>
 					setCount((count) => (count === 0 ? 0 : count - 1))
 				}
@@ -13,7 +14,12 @@ const Counter = () => {
 				-
 			</p>
 			<p>{count}</p>
-			<p onClick={() => setCount((count) => count + 1)}>+</p>
+			<p
+				className="cursor-pointer"
+				onClick={() => setCount((count) => count + 1)}
+			>
+				+
+			</p>
 		</div>
 	);
 };

@@ -19,7 +19,7 @@ const CartCard = () => {
 					<h6>Floor 1, build 10</h6>
 				</div>
 
-				<div class="flex justify-between items-center text-xl">
+				<div className="flex items-center justify-between text-xl">
 					<Counter />
 
 					<p>$15</p>
