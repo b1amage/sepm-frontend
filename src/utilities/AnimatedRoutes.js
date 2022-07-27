@@ -12,6 +12,7 @@ import DetailPage from "../views/DetailPage";
 import ProfilePage from "../views/ProfilePage";
 import CartPage from "../views/CartPage";
 import OrderSuccessPage from "../views/OrderSuccessPage";
+import RegisterFailPage from "../views/RegisterFailPage";
 
 const AnimatedRoutes = () => {
 	const location = useLocation();
@@ -28,6 +29,7 @@ const AnimatedRoutes = () => {
 				<Route path="/profile" element={<ProfilePage />} />
 				<Route path="/cart" element={<CartPage />} />
 				<Route path="/order-success" element={<OrderSuccessPage />} />
+				<Route path="/register-fail" element={<RegisterFailPage />} />
 
 				<Route path="*" element={<NotFoundPage />} />
 			</Routes>
