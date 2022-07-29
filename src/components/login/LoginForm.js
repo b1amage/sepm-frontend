@@ -2,10 +2,9 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import Button from "../../utilities/Button";
 
-// import authenticationApi from "../../api/authenticationApi";
+import authenticationApi from "../../api/authenticationApi";
 
 const LoginForm = () => {
 	const navigate = useNavigate();
@@ -19,18 +18,7 @@ const LoginForm = () => {
 		}),
 		onSubmit: (values) => {
 			const login = async (values) => {
-				await axios
-					.post("/api/auth/login", values)
-					.then(function (response) {
-						console.log(response);
-						navigate(
-							`/otp/${values.username}/${response.data.hash}`
-						);
-					})
-					.catch(function (error) {
-						console.log(error);
-					});
-				// authenticationApi.login(values, navigate);
+				authenticationApi.login(values, navigate);
 			};
 
 			login(values);

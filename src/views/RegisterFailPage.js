@@ -2,8 +2,10 @@ import React from "react";
 import NavBar from "../components/header/NavBar";
 import cross from "../assets/svg/cross.svg";
 import Button from "../utilities/Button";
+import { useParams } from "react-router-dom";
 
 const RegisterFailPage = () => {
+	const { msg } = useParams();
 	return (
 		<div className="page-container">
 			<div className="flex flex-col">
@@ -21,10 +23,7 @@ const RegisterFailPage = () => {
 					<h3 className="text-2xl font-semibold md:text-5xl">
 						Failed to verify
 					</h3>
-					<p className="text-lg md:text-2xl">
-						Your account is not verified as the link is expired.
-						Please try register again
-					</p>
+					<p className="text-lg md:text-2xl">{msg}</p>
 				</div>
 
 				<Button

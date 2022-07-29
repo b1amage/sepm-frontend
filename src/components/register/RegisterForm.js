@@ -5,10 +5,12 @@ import authenticationApi from "../../api/authenticationApi";
 import Modal from "./Modal";
 import Loading from "../../utilities/Loading";
 import Button from "../../utilities/Button";
+import { useNavigate } from "react-router-dom";
 
 const RegisterForm = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [isLoaded, setIsLoaded] = useState(false);
+	const navigate = useNavigate();
 
 	const formik = useFormik({
 		initialValues: {
@@ -28,7 +30,9 @@ const RegisterForm = () => {
 			const postData = async (values) => {
 				setIsLoading(true);
 				console.log("loading...");
-				const data = await authenticationApi.register(values);
+				const data = await authenticationApi.register(values, navigate);
+				if (!data) return;
+
 				setIsLoading(false);
 				setIsLoaded(true);
 

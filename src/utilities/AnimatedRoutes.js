@@ -29,7 +29,7 @@ const AnimatedRoutes = () => {
 				<Route path="/profile" element={<ProfilePage />} />
 				<Route path="/cart" element={<CartPage />} />
 				<Route path="/order-success" element={<OrderSuccessPage />} />
-				<Route path="/register-fail" element={<RegisterFailPage />} />
+				<Route path="/fail/:msg" element={<RegisterFailPage />} />
 
 				<Route path="*" element={<NotFoundPage />} />
 			</Routes>
