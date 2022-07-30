@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import OTPInput, { ResendOTP } from "otp-input-react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { motion } from "framer-motion";
 import noodle from "../assets/svg/noodle.svg";
@@ -13,6 +13,7 @@ const OTP_EXPIRE_TIME = 90;
 const OTPPage = () => {
 	const [OTP, setOTP] = useState("");
 	let { hash, username } = useParams();
+	const navigate = useNavigate();
 
 	const sendOTP = async () => {
 		await axios
@@ -31,6 +32,7 @@ const OTPPage = () => {
 					"user",
 					JSON.stringify(response.data.user)
 				);
+				navigate(`/profile`);
 			})
 			.catch(function (error) {
 				console.log(error);

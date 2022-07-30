@@ -12,9 +12,9 @@ const UserInfo = ({
 		<>
 			<div className="flex flex-col items-center justify-center !mt-8 mb-5 space-y-2 md:!mt-12">
 				<h3 className="text-2xl font-semibold md:text-3xl lg:text-4xl">
-					@baonguyen33
+					@{username}
 				</h3>
-				<h6 className="text-lg">s3877698@rmit.edu.vn</h6>
+				<h6 className="text-lg">{email}</h6>
 				<p className="!mt-6 text-lg text-center">
 					Hello, my name is Claudia Alves. Welcome to my Profile!
 				</p>

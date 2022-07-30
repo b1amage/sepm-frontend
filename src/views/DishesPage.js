@@ -10,7 +10,7 @@ const DishesPage = () => {
 			<div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 place-items-center">
 				{Array(10)
 					.fill()
-					.map((item, index) => (
+					.map((_, index) => (
 						<FoodCard key={index} />
 					))}
 			</div>
