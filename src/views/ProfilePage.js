@@ -37,7 +37,7 @@ const ProfilePage = () => {
 							<Button
 								onClick={logOut}
 								content="Log out"
-								className="text-black bg-transparent min-w-[130px] md:min-w-[150px] lg:min-w-[180px] !border-2 !border-solid !border-black hover:bg-transparent hover:text-black"
+								className="text-black dark:text-white bg-transparent min-w-[130px] md:min-w-[150px] lg:min-w-[180px] !border-2 !border-solid !border-black dark:!border-white hover:bg-transparent hover:text-black"
 							/>
 						</div>
 
