@@ -1,9 +1,5 @@
 import { useState, useEffect } from "react";
 
-/**
- * This hook get the current theme from local storage and return a reverse theme of the current
- * @returns dark if current is light and vice versa and a function to set the theme
- */
 const useDarkMode = () => {
 	// State for controlling the dark mode
 	const [isDarkMode, setIsDarkMode] = useState(
@@ -16,9 +12,6 @@ const useDarkMode = () => {
 		isDarkMode && document.querySelector("html").classList.add("dark");
 	}, [isDarkMode]);
 
-	/**
-	 * This inner function use to set the theme base on the current theme
-	 */
 	const toggleDarkMode = () => {
 		setIsDarkMode(() => !isDarkMode);
 		document.querySelector("html").classList.toggle("dark");
