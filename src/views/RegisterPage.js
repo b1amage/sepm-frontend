@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import ImgFrame from "../utilities/ImgFrame";
 import rice from "../assets/svg/rice.svg";
 import Title from "../utilities/Title";
+import Footer from "../components/footer/Footer";
 
 const RegisterPage = () => {
 	return (
@@ -32,6 +33,7 @@ const RegisterPage = () => {
 			<RegisterForm />
 
 			<ImgFrame src={rice} className="w-1/2 mx-auto mt-10 lg:w-1/4" />
+			<Footer />
 		</motion.div>
 	);
 };

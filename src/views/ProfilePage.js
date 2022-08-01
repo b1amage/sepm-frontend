@@ -6,6 +6,7 @@ import Button from "../utilities/Button";
 import UserInfo from "../components/profile/UserInfo";
 import UserReview from "../components/profile/UserReview";
 import authenticationApi from "../api/authenticationApi";
+import Footer from "../components/footer/Footer";
 
 const ProfilePage = () => {
 	const user = JSON.parse(localStorage.getItem("user"));
@@ -43,6 +44,7 @@ const ProfilePage = () => {
 
 						<UserReview />
 					</div>
+					<Footer />
 				</>
 			)}
 		</div>

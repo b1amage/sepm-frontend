@@ -3,6 +3,7 @@ import NavBar from "../components/header/NavBar";
 import cross from "../assets/svg/cross.svg";
 import Button from "../utilities/Button";
 import { useParams } from "react-router-dom";
+import Footer from "../components/footer/Footer";
 
 const RegisterFailPage = () => {
 	const { msg } = useParams();
@@ -31,6 +32,8 @@ const RegisterFailPage = () => {
 					className="w-full mt-20 md:w-3/4 md:mx-auto md:!h-[80px] md:text-2xl lg:w-3/5 lg:mt-[100px]"
 				/>
 			</div>
+
+			<Footer />
 		</div>
 	);
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import FoodCard from "../components/dishes/FoodCard";
+import Footer from "../components/footer/Footer";
 import NavBar from "../components/header/NavBar";
 
 const DishesPage = () => {
@@ -14,6 +15,7 @@ const DishesPage = () => {
 						<FoodCard key={index} />
 					))}
 			</div>
+			<Footer />
 		</div>
 	);
 };

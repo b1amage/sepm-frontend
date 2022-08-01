@@ -8,6 +8,7 @@ import NavBar from "../components/header/NavBar";
 import Button from "../utilities/Button";
 import authenticationApi from "../api/authenticationApi";
 import Loading from "../utilities/Loading";
+import Footer from "../components/footer/Footer";
 const OTP_DIGIT_COUNT = 6;
 const OTP_EXPIRE_TIME = 90;
 
@@ -91,6 +92,7 @@ const OTPPage = () => {
 							OTP.length === 6 ? "block" : "hidden"
 						} mt-4 md:text-xl btn w-full transition-all duration-300 md:h-[60px]`}
 					/>
+					<Footer />
 				</>
 			)}
 		</motion.div>

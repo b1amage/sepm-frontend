@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import NavBar from "../components/header/NavBar";
 import ImgFrame from "../utilities/ImgFrame";
 import Button from "../utilities/Button";
+import Footer from "../components/footer/Footer";
 
 const DetailPage = () => {
 	return (
@@ -65,6 +66,8 @@ const DetailPage = () => {
 						))}
 				</div>
 			</div>
+
+			<Footer />
 		</motion.div>
 	);
 };

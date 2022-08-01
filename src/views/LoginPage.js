@@ -6,6 +6,7 @@ import NavBar from "../components/header/NavBar";
 import { Link } from "react-router-dom";
 import ImgFrame from "../utilities/ImgFrame";
 import rice from "../assets/svg/rice.svg";
+import Footer from "../components/footer/Footer";
 
 const LoginPage = () => {
 	return (
@@ -27,6 +28,8 @@ const LoginPage = () => {
 
 			<LoginForm />
 			<ImgFrame src={rice} className="w-1/2 mx-auto mt-10 lg:w-1/4" />
+
+			<Footer />
 		</motion.div>
 	);
 };

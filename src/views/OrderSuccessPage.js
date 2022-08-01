@@ -2,6 +2,7 @@ import React from "react";
 import NavBar from "../components/header/NavBar";
 import cook from "../assets/svg/cook.svg";
 import Button from "../utilities/Button";
+import Footer from "../components/footer/Footer";
 
 const OrderSuccessPage = () => {
 	return (
@@ -30,6 +31,8 @@ const OrderSuccessPage = () => {
 
 				<Button content="Ok" className="w-full md:w-1/2 md:mx-auto" />
 			</div>
+
+			<Footer />
 		</div>
 	);
 };

@@ -3,6 +3,7 @@ import CartCard from "../components/cart/CartCard";
 import NavBar from "../components/header/NavBar";
 import momo from "../assets/svg/momo.svg";
 import Button from "../utilities/Button";
+import Footer from "../components/footer/Footer";
 
 const CartPage = () => {
 	return (
@@ -32,6 +33,7 @@ const CartPage = () => {
 			</div>
 
 			<Button content="Order now" className="w-full my-10" />
+			<Footer />
 		</div>
 	);
 };

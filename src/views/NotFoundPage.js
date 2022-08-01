@@ -5,6 +5,7 @@ import ImgFrame from "../utilities/ImgFrame";
 import Button from "../utilities/Button";
 import { Link } from "react-router-dom";
 import NavBar from "../components/header/NavBar";
+import Footer from "../components/footer/Footer";
 
 const NotFoundPage = () => {
 	return (
@@ -42,6 +43,8 @@ const NotFoundPage = () => {
 					className="w-full landscape:md:w-3/5 xl:!w-1/2 md:w-4/5 self-center text-lg md:text-xl h-[60px] md:h-[70px] font-bold"
 				/>
 			</Link>
+
+			<Footer />
 		</motion.div>
 	);
 };

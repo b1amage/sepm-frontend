@@ -3,6 +3,7 @@ import { AiFillCheckCircle } from "react-icons/ai";
 import { useLocation, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import authenticationApi from "../api/authenticationApi";
+import Footer from "../components/footer/Footer";
 
 const useQuery = () => {
 	return new URLSearchParams(useLocation().search);
@@ -69,6 +70,8 @@ const VerifyEmailPage = () => {
 					>
 						Go to home page
 					</Link>
+
+					<Footer />
 				</div>
 			)}
 		</motion.div>
