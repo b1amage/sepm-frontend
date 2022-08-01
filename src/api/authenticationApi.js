@@ -41,16 +41,7 @@ const authenticationApi = {
 	async verifyOTP(values, navigate) {
 		console.log("verify called");
 		await axiosClient
-			.post(
-				"/api/auth/verify-OTP",
-				values,
-				// {
-				// 	hash,
-				// 	username,
-				// 	otp: OTP,
-				// },
-				{ withCredentials: true }
-			)
+			.post("/api/auth/verify-OTP", values, { withCredentials: true })
 			.then(function (response) {
 				console.log(response);
 				const user = response.data.user;
@@ -74,6 +65,17 @@ const authenticationApi = {
 			})
 			.then(function (response) {
 				console.log(response);
+			})
+			.catch(function (err) {
+				console.log(err);
+			});
+	},
+	async logOut() {
+		await axiosClient
+			.delete("/api/auth/logout")
+			.then(function (response) {
+				console.log(response);
+				localStorage.removeItem("user");
 			})
 			.catch(function (err) {
 				console.log(err);
