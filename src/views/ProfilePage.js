@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import NavBar from "../components/header/NavBar";
 import ImgFrame from "../utilities/ImgFrame";
 import baoImg from "../assets/img/bao-img.png";
@@ -7,7 +7,7 @@ import UserInfo from "../components/profile/UserInfo";
 import UserReview from "../components/profile/UserReview";
 
 const ProfilePage = () => {
-	const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
+	const user = JSON.parse(localStorage.getItem("user"));
 
 	return (
 		<div className="page-container">
