@@ -8,6 +8,7 @@
 -   Course: Software Engineering Project Management (SEPM)
 -   Course code: ISYS2101
 -   Lecturer: Miss. Anna Lyza Felipe
+-   Lecturer: Mr. Ho Nguyen Phu Bao
 
 ### Contributors
 
