@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import OTPInput, { ResendOTP } from "otp-input-react";
 import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
 import { motion } from "framer-motion";
 import noodle from "../assets/svg/noodle.svg";
 import ImgFrame from "../utilities/ImgFrame";
 import NavBar from "../components/header/NavBar";
 import Button from "../utilities/Button";
+import authenticationApi from "../api/authenticationApi";
 const OTP_DIGIT_COUNT = 6;
 const OTP_EXPIRE_TIME = 90;
 
@@ -14,37 +14,22 @@ const OTPPage = () => {
 	const [OTP, setOTP] = useState("");
 	let { hash, username } = useParams();
 	const navigate = useNavigate();
+	const values = { hash, username, otp: OTP };
 
-	const sendOTP = async () => {
-		await axios
-			.post(
-				"/api/auth/verify-OTP",
-				{
-					hash,
-					username,
-					otp: OTP,
-				},
-				{ withCredentials: true }
-			)
-			.then(function (response) {
-				console.log(response);
-				localStorage.setItem(
-					"user",
-					JSON.stringify(response.data.user)
-				);
-				navigate(`/profile`);
-			})
-			.catch(function (error) {
-				console.log(error);
-			});
+	const verifyOTP = () => {
+		authenticationApi.verifyOTP(values, navigate);
+	};
+
+	const resendOTP = () => {
+		authenticationApi.resendOTP(values);
 	};
 
 	const handleResendClick = () => {
-		sendOTP();
+		resendOTP();
 	};
 
 	const handleVerifyClick = () => {
-		sendOTP();
+		verifyOTP();
 	};
 
 	return (

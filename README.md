@@ -29,9 +29,6 @@
     -   Frontend: HTML, SASS, ReactJS, TailwindCSS
     -   Backend: MongoDB, ExpressJS, NodeJS
 
-    -   Data analysis: Python, Numpy
-    -   Data visualization: ChartJS, MatplotLib (Pyplot)
-
 -   Project started date: 27 June 2022
 -   Project finished date: 19 September 2022
 

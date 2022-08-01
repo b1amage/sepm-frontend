@@ -37,6 +37,48 @@ const authenticationApi = {
 			setError(true);
 		}
 	},
+
+	async verifyOTP(values, navigate) {
+		console.log("verify called");
+		await axiosClient
+			.post(
+				"/api/auth/verify-OTP",
+				values,
+				// {
+				// 	hash,
+				// 	username,
+				// 	otp: OTP,
+				// },
+				{ withCredentials: true }
+			)
+			.then(function (response) {
+				console.log(response);
+				const user = response.data.user;
+				localStorage.setItem("user", JSON.stringify(user));
+				const destination = user.email.includes("@rmit")
+					? `/profile`
+					: `/dashboard`;
+				navigate(destination);
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+	},
+
+	async resendOTP(values) {
+		console.log("resend called");
+
+		await axiosClient
+			.post("/api/auth/verify-OTP", values, {
+				withCredentials: true,
+			})
+			.then(function (response) {
+				console.log(response);
+			})
+			.catch(function (err) {
+				console.log(err);
+			});
+	},
 };
 
 export default authenticationApi;
