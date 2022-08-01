@@ -4,7 +4,6 @@ import Button from "../../utilities/Button";
 import star from "../../assets/svg/star.svg";
 
 const ProductCard = ({ starCount, info }) => {
-	console.log("info", info);
 	return (
 		<div className="grid shadow-xl shrink-0 snap-start grid-cols-3 gap-3 md:gap-6 p-2 overflow-hidden rounded-lg place-items-center h-[150px] md:h-[175px] w-full max-w-[350px] mr-3">
 			<ImgFrame
@@ -14,7 +13,9 @@ const ProductCard = ({ starCount, info }) => {
 
 			<div className="flex flex-col items-start justify-start w-full h-full col-span-2 col-start-2">
 				<div className="mb-1">
-					<h3 className="mt-2 font-bold md:text-lg">{"sfdgs"}</h3>
+					<h3 className="mt-2 font-bold md:text-lg">
+						{info.foodName}
+					</h3>
 					<div className="text-[10px] md:text-sm font-normal">
 						<h6>{info.vendor.username}</h6>
 						<p>{info.location}</p>
@@ -35,7 +36,7 @@ const ProductCard = ({ starCount, info }) => {
 				</div>
 
 				<div className="flex items-center justify-between w-full mt-3">
-					<h3 className="font-bold">12</h3>
+					<h3 className="font-bold">{info.price}</h3>
 
 					<Button
 						className="text-[10px] btn-sm"
