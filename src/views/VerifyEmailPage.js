@@ -70,8 +70,6 @@ const VerifyEmailPage = () => {
 					>
 						Go to home page
 					</Link>
-
-					<Footer />
 				</div>
 			)}
 		</motion.div>

@@ -9,9 +9,9 @@ const UserInfo = ({ username, email }) => {
 						@{username}
 					</h3>
 					<h6 className="text-lg">{email}</h6>
-					<p className="!mt-6 text-lg text-center">
+					{/* <p className="!mt-6 text-lg text-center">
 						Hello, my name is Claudia Alves. Welcome to my Profile!
-					</p>
+					</p> */}
 				</div>
 			)}
 
