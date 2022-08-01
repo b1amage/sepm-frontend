@@ -55,8 +55,7 @@ const OTPPage = () => {
 							Enter your OTP code
 						</h3>
 						<p className="font-thin md:text-xl lg:text-2xl md:font-medium">
-							We have send an 6-digit-OTP code to
-							s3877698@rmit.edu.vn
+							We have send an 6-digit-OTP code to your email
 						</p>
 					</div>
 
