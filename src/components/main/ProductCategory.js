@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import Skeleton from "../../utilities/Skeleton";
 
 const ProductCategory = ({ category }) => {
 	const [products, setProducts] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
+
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -36,17 +39,23 @@ const ProductCategory = ({ category }) => {
 				{isLoading
 					? Array(5)
 							.fill()
-							.map((item, index) => <Skeleton key={index} />)
+							.map((_, index) => <Skeleton key={index} />)
 					: products.length > 0 &&
 					  products.map((_, index) => (
 							<ProductCard
 								starCount={5}
 								key={index}
 								info={products[index]}
+								category={category}
 							/>
 					  ))}
 
-				<div className="flex w-[250px] shrink-0 items-center justify-center rounded-lg !h-[150px] md:!h-[175px] bg-red bg-opacity-50 text-darkRed uppercase font-bold text-xl">
+				<div
+					onClick={() => {
+						navigate(`/dishes/${category}`);
+					}}
+					className="flex w-[250px] shrink-0 items-center justify-center rounded-lg !h-[150px] md:!h-[175px] bg-red bg-opacity-50 text-darkRed uppercase font-bold text-xl"
+				>
 					<h1 className="text-white cursor-pointer">See all</h1>
 				</div>
 			</div>
