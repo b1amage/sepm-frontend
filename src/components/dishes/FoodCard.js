@@ -3,7 +3,7 @@ import star from "../../assets/svg/star.svg";
 import { Link } from "react-router-dom";
 
 const FoodCard = ({ food }) => {
-	console.log(food);
+	// console.log(food);
 	return (
 		<Link to={`/detail/${food._id}`}>
 			<div className="w-[300px] h-[400px] shadow-xl rounded-lg p-4">

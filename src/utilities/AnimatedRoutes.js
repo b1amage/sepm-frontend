@@ -15,6 +15,7 @@ import OrderSuccessPage from "../views/OrderSuccessPage";
 import RegisterFailPage from "../views/RegisterFailPage";
 import DishesPage from "../views/DishesPage";
 import DashBoardPage from "../views/DashBoardPage";
+import SearchPage from "../views/SearchPage";
 
 const AnimatedRoutes = () => {
 	const location = useLocation();
@@ -34,6 +35,7 @@ const AnimatedRoutes = () => {
 				<Route path="/fail/:msg" element={<RegisterFailPage />} />
 				<Route path="/dishes/:category" element={<DishesPage />} />
 				<Route path="/dashboard" element={<DashBoardPage />} />
+				<Route path="/search/:search" element={<SearchPage />} />
 
 				<Route path="*" element={<NotFoundPage />} />
 			</Routes>

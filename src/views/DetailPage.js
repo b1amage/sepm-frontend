@@ -13,12 +13,13 @@ const DetailPage = () => {
 	const { foodId } = useParams();
 	const [food, setFood] = useState();
 	const [isLoading, setIsLoading] = useState(true);
+	const [review, setReview] = useState("");
 
 	useEffect(() => {
 		const getFood = async () => {
 			const res = await axios.get(`/api/food/${foodId}`);
 
-			console.log(res.data);
+			// console.log(res.data);
 
 			setFood(res.data.food);
 			setIsLoading(false);
@@ -27,7 +28,11 @@ const DetailPage = () => {
 		getFood();
 	}, [foodId]);
 
-	console.log(food);
+	const handleReviewChange = (e) => {
+		setReview(e.target.value);
+	};
+
+	// console.log(food);
 
 	return (
 		<motion.div
@@ -72,6 +77,33 @@ const DetailPage = () => {
 							className="w-full input md:text-lg"
 							placeholder="Note to chef. Eg. No spicy"
 						/>
+					</div>
+
+					<div className="my-10">
+						<h1 className="mb-3 text-2xl font-bold lg:text-4xl">
+							Review
+						</h1>
+
+						<form
+							className="flex flex-col space-y-5"
+							onSubmit={(e) => {
+								e.preventDefault();
+								console.log(review);
+							}}
+						>
+							<input
+								type="text"
+								className="w-full input md:text-lg"
+								placeholder="Any review on this dishes?"
+								onChange={handleReviewChange}
+							/>
+
+							<Button
+								content="review"
+								type="submit"
+								className="w-1/2 md:w-1/3 !mt-6 lg:w-1/6"
+							/>
+						</form>
 					</div>
 
 					<div className="my-10">
