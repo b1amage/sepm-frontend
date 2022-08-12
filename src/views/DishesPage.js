@@ -6,6 +6,7 @@ import Footer from "../components/footer/Footer";
 import NavBar from "../components/header/NavBar";
 import Button from "../utilities/Button";
 import Loading from "../utilities/Loading";
+import Filter from "../components/filter/Filter";
 
 const DishesPage = () => {
 	const [nextCursor, setNextCursor] = useState(false);
@@ -14,6 +15,7 @@ const DishesPage = () => {
 	const [isLoadMore, setIsLoadMore] = useState(false);
 
 	const { category } = useParams();
+	const filter = localStorage.getItem("filter");
 
 	console.log(category);
 
@@ -25,8 +27,8 @@ const DishesPage = () => {
 
 			const res = await axios.get(
 				category !== "all"
-					? `https://food-suggestion-rmit.herokuapp.com/api/food?type=${category}&next_cursor=${nextCursor}`
-					: `https://food-suggestion-rmit.herokuapp.com/api/food?next_cursor=${nextCursor}`
+					? `https://food-suggestion-rmit.herokuapp.com/api/food?type=${category}&next_cursor=${nextCursor}&category=${filter}`
+					: `https://food-suggestion-rmit.herokuapp.com/api/food?next_cursor=${nextCursor}&category=${filter}`
 			);
 
 			console.log(res.data);
@@ -62,7 +64,7 @@ const DishesPage = () => {
 		fetch();
 	}, [category]);
 	return (
-		<div className="page-container">
+		<div className="relative page-container">
 			<NavBar />
 
 			{isLoading ? (
@@ -71,6 +73,10 @@ const DishesPage = () => {
 				</div>
 			) : (
 				<>
+					<Filter
+						setDishes={setDishes}
+						setNextCursor={setNextCursor}
+					/>
 					<div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 place-items-center">
 						{dishes.length === 0 ? (
 							<div>No result found</div>
