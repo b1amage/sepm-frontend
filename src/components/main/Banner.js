@@ -2,6 +2,7 @@ import React from "react";
 import Button from "../../utilities/Button";
 import ImgFrame from "../../utilities/ImgFrame";
 import hero from "../../assets/svg/hero.svg";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
 	return (
@@ -14,10 +15,12 @@ const Banner = () => {
 					<h6 className="dark:text-white">Order food</h6>
 				</div>
 
-				<Button
-					content="order now"
-					className="w-2/5 text-xs btn-sm md:btn-md md:text-lg lg:h-[60px]"
-				/>
+				<Link to="/dishes/all">
+					<Button
+						content="order now"
+						className="w-2/5 text-xs btn-sm md:btn-md md:text-lg lg:h-[60px]"
+					/>
+				</Link>
 			</div>
 
 			<ImgFrame

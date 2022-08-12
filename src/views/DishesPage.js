@@ -5,10 +5,14 @@ import FoodCard from "../components/dishes/FoodCard";
 import Footer from "../components/footer/Footer";
 import NavBar from "../components/header/NavBar";
 import Button from "../utilities/Button";
+import Loading from "../utilities/Loading";
 
 const DishesPage = () => {
 	const [nextCursor, setNextCursor] = useState(false);
 	const [dishes, setDishes] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
+	const [isLoadMore, setIsLoadMore] = useState(false);
+
 	const { category } = useParams();
 
 	console.log(category);
@@ -16,6 +20,8 @@ const DishesPage = () => {
 	const handleSeeMore = () => {
 		const fetch = async () => {
 			if (!nextCursor) return;
+
+			setIsLoadMore(true);
 
 			const res = await axios.get(
 				category !== "all"
@@ -30,6 +36,8 @@ const DishesPage = () => {
 
 			setDishes(newDishes);
 			setNextCursor(res.data.next_cursor);
+
+			setIsLoadMore(false);
 		};
 
 		fetch();
@@ -49,6 +57,7 @@ const DishesPage = () => {
 			}
 
 			setDishes(res.data.results);
+			setIsLoading(false);
 		};
 		fetch();
 	}, [category]);
@@ -56,19 +65,37 @@ const DishesPage = () => {
 		<div className="page-container">
 			<NavBar />
 
-			<div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 place-items-center">
-				{dishes.length === 0 ? (
-					<div>No result found</div>
-				) : (
-					dishes.map((item, index) => (
-						<FoodCard food={item} key={index} />
-					))
-				)}
-			</div>
+			{isLoading ? (
+				<div className="flex items-center justify-center">
+					<Loading />
+				</div>
+			) : (
+				<>
+					<div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 place-items-center">
+						{dishes.length === 0 ? (
+							<div>No result found</div>
+						) : (
+							dishes.map((item, index) => (
+								<FoodCard food={item} key={index} />
+							))
+						)}
+					</div>
 
-			<div className="flex items-center justify-center my-10">
-				<Button content="Click to view more" onClick={handleSeeMore} />
-			</div>
+					<div className="flex items-center justify-center my-8">
+						{isLoadMore && <Loading />}
+					</div>
+
+					{nextCursor && (
+						<div className="flex items-center justify-center my-10">
+							<Button
+								content="Click to view more"
+								onClick={handleSeeMore}
+							/>
+						</div>
+					)}
+				</>
+			)}
+
 			<Footer />
 		</div>
 	);
