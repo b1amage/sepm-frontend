@@ -1,7 +1,7 @@
 import React from "react";
 import Counter from "./Counter";
 
-const CartCard = () => {
+const CartCard = ({ foodName }) => {
 	return (
 		<div className="flex items-center space-x-5 min-h-[150px] shadow-xl px-1 md:p-4 lg:p-10 md:max-w-none rounded-md">
 			<div className="max-w-[30%] md:max-w-[50%]">
@@ -13,7 +13,7 @@ const CartCard = () => {
 			</div>
 
 			<div className="flex flex-col flex-1">
-				<h1 className="text-xl font-bold">Banh Mi</h1>
+				<h1 className="text-xl font-bold">{foodName || "Banh Mi"}</h1>
 				<div className="text-lg">
 					<h3>Sorento</h3>
 					<h6>Floor 1, build 10</h6>
