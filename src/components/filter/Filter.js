@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import FilterIcon from "./FilterIcon";
 import FilterModal from "./FilterModal";
 
-const Filter = ({ setDishes, setNextCursor }) => {
+const Filter = ({ setDishes, setNextCursor, handleSeeMoreFilter }) => {
 	const [isShowModal, setIsShowModal] = useState(false);
 	return (
 		<div className="my-8">
@@ -17,6 +17,7 @@ const Filter = ({ setDishes, setNextCursor }) => {
 				<FilterModal
 					setDishes={setDishes}
 					setNextCursor={setNextCursor}
+					handleSeeMoreFilter={handleSeeMoreFilter}
 				/>
 			)}
 		</div>

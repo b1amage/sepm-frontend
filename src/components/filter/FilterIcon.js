@@ -3,8 +3,9 @@ import { HiOutlineAdjustments } from "react-icons/hi";
 
 const FilterIcon = () => {
 	return (
-		<div>
-			<HiOutlineAdjustments className="text-3xl cursor-pointer" />
+		<div className="flex items-center space-x-2 cursor-pointer">
+			<HiOutlineAdjustments className="text-3xl" />
+			<p className="text-lg font-semibold">Filter</p>
 		</div>
 	);
 };
