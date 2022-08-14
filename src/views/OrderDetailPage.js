@@ -11,7 +11,7 @@ const OrderDetailPage = () => {
 			<div className="flex flex-col my-6 space-y-4 md:my-8">
 				<h3 className="text-lg font-semibold md:text-3xl">
 					Summary of <span className="text-red">"username"</span> your
-					order: ;
+					order
 				</h3>
 				<h6 className="text-lg font-semibold md:text-2xl">
 					This order is processing by{" "}

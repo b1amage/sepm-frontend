@@ -20,6 +20,7 @@ const DishesPage = () => {
 	// const filter = localStorage.getItem("filter");
 
 	// console.log(category);
+	console.log(isUseFilter);
 
 	const handleSeeMore = () => {
 		const fetch = async () => {
