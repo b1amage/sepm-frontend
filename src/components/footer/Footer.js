@@ -57,7 +57,7 @@ const Footer = () => {
 						<ul className="w-full text-left text-gray-600 dark:text-gray-400">
 							<li className="mb-2">
 								<a
-									href="https://github.com/whisky-lover/sepm-frontend/blob/main/README.md"
+									href="https://github.com/sweet-vermouth/sepm-frontend/blob/main/Term%26Policy.md"
 									className="hover:underline"
 								>
 									Privacy Policy
@@ -65,7 +65,7 @@ const Footer = () => {
 							</li>
 							<li>
 								<a
-									href="https://github.com/whisky-lover/sepm-frontend/blob/main/README.md"
+									href="https://github.com/sweet-vermouth/sepm-frontend/blob/main/Term%26Policy.md"
 									className="hover:underline"
 								>
 									Terms &amp; Conditions
