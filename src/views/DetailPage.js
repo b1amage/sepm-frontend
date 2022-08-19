@@ -4,34 +4,54 @@ import NavBar from "../components/header/NavBar";
 import ImgFrame from "../utilities/ImgFrame";
 import Button from "../utilities/Button";
 import Footer from "../components/footer/Footer";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import FoodCard from "../components/dishes/FoodCard";
 import Loading from "../utilities/Loading";
 import authenticationApi from "../api/authenticationApi";
+import ReviewCard from "../components/review/ReviewCard";
 
 const DetailPage = () => {
 	const { foodId } = useParams();
+	const navigate = useNavigate();
 	const isLogin = authenticationApi.isLogin();
 
-	const user = isLogin ? JSON.parse(localStorage.getItem("user")) : null;
-	console.log(user);
-
 	const [food, setFood] = useState();
+	const [reviews, setReviews] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [review, setReview] = useState("");
+
+	const handleDelete = (id) => {
+		const newReview = reviews.filter((item) => item._id !== id);
+		setReviews(newReview);
+
+		const del = async () => {
+			const res = await axios.delete(`/api/review/${id}`);
+			console.log(res);
+		};
+
+		del();
+	};
 
 	useEffect(() => {
 		const getFood = async () => {
 			const res = await axios.get(`/api/food/${foodId}`);
-
-			// console.log(res.data);
 
 			setFood(res.data.food);
 			setIsLoading(false);
 		};
 
 		getFood();
+	}, [foodId]);
+
+	useEffect(() => {
+		const fetchReviews = async () => {
+			const res = await axios.get(`/api/review/${foodId}`);
+			console.log(res.data.results);
+			setReviews(res.data.results);
+		};
+
+		fetchReviews();
 	}, [foodId]);
 
 	const handleReviewChange = (e) => {
@@ -94,7 +114,35 @@ const DetailPage = () => {
 							className="flex flex-col space-y-5"
 							onSubmit={(e) => {
 								e.preventDefault();
-								console.log(review);
+								if (!isLogin) {
+									navigate("/login");
+									return;
+								}
+
+								// post api
+								const sendReview = async () => {
+									const newReview = {
+										rating: 4,
+										title: "Good",
+										comment: review,
+										food: foodId,
+										user: {
+											username: JSON.parse(
+												localStorage.getItem("user")
+											).username,
+										},
+									};
+									setReviews([...reviews, newReview]);
+
+									const res = await axios.post(
+										"/api/review",
+										newReview
+									);
+
+									console.log(res);
+								};
+
+								sendReview();
 							}}
 						>
 							<input
@@ -110,6 +158,23 @@ const DetailPage = () => {
 								className="w-1/2 md:w-1/3 !mt-6 lg:w-1/6"
 							/>
 						</form>
+					</div>
+
+					<div>
+						<h1 className="mb-3 text-2xl font-bold lg:text-4xl">
+							Review about this food
+						</h1>
+
+						<div>
+							{reviews?.length > 0 &&
+								reviews.map((item, index) => (
+									<ReviewCard
+										review={item}
+										key={index}
+										handleDelete={handleDelete}
+									/>
+								))}
+						</div>
 					</div>
 
 					<div className="my-10">
