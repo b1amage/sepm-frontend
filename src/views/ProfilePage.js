@@ -8,11 +8,15 @@ import UserReview from "../components/profile/UserReview";
 import authenticationApi from "../api/authenticationApi";
 import Footer from "../components/footer/Footer";
 import RequireLogin from "../components/profile/RequireLogin";
+import { useNavigate } from "react-router-dom";
 
 const ProfilePage = () => {
+	const navigate = useNavigate();
 	const user = JSON.parse(localStorage.getItem("user"));
+
 	const logOut = () => {
 		authenticationApi.logOut();
+		navigate("/");
 	};
 
 	return (

@@ -11,6 +11,7 @@ const OrderDetailPage = () => {
 	const [searchParams] = useSearchParams();
 
 	const user = searchParams.get("user");
+	const image = searchParams.get("image");
 	const food = searchParams.get("food");
 	const vendor = searchParams.get("vendor");
 	const totalPrice = searchParams.get("totalPrice");
@@ -20,7 +21,7 @@ const OrderDetailPage = () => {
 		<div className="page-container">
 			<NavBar />
 
-			<div className="flex flex-col my-6 space-y-4 md:my-8">
+			<div className="flex flex-col items-center justify-center my-6 space-y-4 md:my-8">
 				<h3 className="text-lg font-semibold md:text-3xl">
 					Summary of{" "}
 					<span className="capitalize text-red">{user}</span> your
@@ -32,13 +33,13 @@ const OrderDetailPage = () => {
 				</h6>
 			</div>
 
-			<div className="grid md:grid-cols-2">
-				<CartCard foodName={food} />
+			<div className="flex items-center justify-center my-8">
+				<CartCard foodName={food} img={image} />
 			</div>
 
-			<div className="flex flex-col space-y-4 my-7 md:my-9">
+			<div className="flex flex-col items-center justify-center space-y-4 my-7 md:my-9">
 				<h3 className="text-lg font-semibold md:text-3xl">
-					Total: <span className="text-red">{totalPrice}</span>
+					Total: <span className="text-red">{totalPrice}</span>VND
 				</h3>
 				<h6 className="text-lg font-semibold md:text-3xl">
 					Will be ready in{" "}

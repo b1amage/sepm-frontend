@@ -1,7 +1,7 @@
 import React from "react";
 import ProductCategory from "./ProductCategory";
 
-const categories = ["Breakfast", "Lunch", "Dinner", "Snack", "Drink"];
+const categories = ["Breakfast", "Lunch", "Dinner"];
 
 const ProductList = () => {
 	return (

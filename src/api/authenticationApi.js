@@ -81,6 +81,10 @@ const authenticationApi = {
 				console.log(err);
 			});
 	},
+
+	isLogin() {
+		return JSON.parse(localStorage.getItem("user"));
+	},
 };
 
 export default authenticationApi;
