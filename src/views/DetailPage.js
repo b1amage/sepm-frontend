@@ -8,9 +8,15 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import FoodCard from "../components/dishes/FoodCard";
 import Loading from "../utilities/Loading";
+import authenticationApi from "../api/authenticationApi";
 
 const DetailPage = () => {
 	const { foodId } = useParams();
+	const isLogin = authenticationApi.isLogin();
+
+	const user = isLogin ? JSON.parse(localStorage.getItem("user")) : null;
+	console.log(user);
+
 	const [food, setFood] = useState();
 	const [isLoading, setIsLoading] = useState(true);
 	const [review, setReview] = useState("");

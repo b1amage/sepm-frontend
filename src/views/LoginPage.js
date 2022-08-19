@@ -9,6 +9,7 @@ import rice from "../assets/svg/rice.svg";
 import Footer from "../components/footer/Footer";
 
 import authenticationApi from "../api/authenticationApi";
+import AlreadyLogin from "../components/login/AlreadyLogin";
 
 const LoginPage = () => {
 	const isLogin = authenticationApi.isLogin();
@@ -25,7 +26,7 @@ const LoginPage = () => {
 
 			<>
 				{isLogin ? (
-					<div>Navigate</div>
+					<AlreadyLogin />
 				) : (
 					<>
 						<Title className="mt-8">Login</Title>

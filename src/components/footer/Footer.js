@@ -27,7 +27,7 @@ const Footer = () => {
 							</li>
 							<li>
 								<a
-									href="https://github.com/whisky-lover/sepm-frontend"
+									href="https://github.com/sweet-vermouth/sepm-frontend/blob/main/README.md"
 									className="hover:underline"
 								>
 									About project
