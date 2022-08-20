@@ -16,10 +16,14 @@ const DetailPage = () => {
 	const navigate = useNavigate();
 	const isLogin = authenticationApi.isLogin();
 
+	const [isShowReview, setIsShowReview] = useState(false);
+
 	const [food, setFood] = useState();
 	const [reviews, setReviews] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [review, setReview] = useState("");
+	const [title, setTitle] = useState("");
+	const [star, setStar] = useState(0);
 
 	const handleDelete = (id) => {
 		const newReview = reviews.filter((item) => item._id !== id);
@@ -36,7 +40,7 @@ const DetailPage = () => {
 	useEffect(() => {
 		const getFood = async () => {
 			const res = await axios.get(`/api/food/${foodId}`);
-
+			console.log(res.data.food);
 			setFood(res.data.food);
 			setIsLoading(false);
 		};
@@ -56,6 +60,34 @@ const DetailPage = () => {
 
 	const handleReviewChange = (e) => {
 		setReview(e.target.value);
+	};
+
+	const updateReview = (id, title, star, review) => {
+		const newReview = {
+			_id: id,
+			rating: star * 1,
+			title: title,
+			comment: review,
+			food: foodId,
+			user: {
+				username: JSON.parse(localStorage.getItem("user")).username,
+			},
+		};
+
+		const newReviews = reviews.map((item) =>
+			item._id === id ? newReview : item
+		);
+
+		console.log("update", newReviews);
+		setReviews(newReviews);
+
+		const update = async () => {
+			// updateReview(id, title, star, review);
+			const res = await axios.patch(`/api/review/${id}`, newReview);
+			console.log(res);
+		};
+
+		update();
 	};
 
 	// console.log(food);
@@ -105,59 +137,84 @@ const DetailPage = () => {
 						/>
 					</div>
 
-					<div className="my-10">
-						<h1 className="mb-3 text-2xl font-bold lg:text-4xl">
-							Review
-						</h1>
-
-						<form
-							className="flex flex-col space-y-5"
-							onSubmit={(e) => {
-								e.preventDefault();
-								if (!isLogin) {
-									navigate("/login");
-									return;
-								}
-
-								// post api
-								const sendReview = async () => {
-									const newReview = {
-										rating: 4,
-										title: "Good",
-										comment: review,
-										food: foodId,
-										user: {
-											username: JSON.parse(
-												localStorage.getItem("user")
-											).username,
-										},
-									};
-									setReviews([...reviews, newReview]);
-
-									const res = await axios.post(
-										"/api/review",
-										newReview
-									);
-
-									console.log(res);
-								};
-
-								sendReview();
-							}}
+					<div className="relative my-10" id="review">
+						<h1
+							onClick={() => setIsShowReview((prev) => !prev)}
+							className={`mb-3 text-2xl font-bold transition-all cursor-pointer ${
+								!isShowReview ? "animate-bounce" : ""
+							} lg:text-4xl`}
 						>
-							<input
-								type="text"
-								className="w-full input md:text-lg"
-								placeholder="Any review on this dishes?"
-								onChange={handleReviewChange}
-							/>
+							Review <span>&darr;</span>
+						</h1>
+						{isShowReview && (
+							<form
+								className="flex flex-col space-y-5"
+								onSubmit={(e) => {
+									e.preventDefault();
+									if (!isLogin) {
+										navigate("/login");
+										return;
+									}
 
-							<Button
-								content="review"
-								type="submit"
-								className="w-1/2 md:w-1/3 !mt-6 lg:w-1/6"
-							/>
-						</form>
+									// post api
+									const sendReview = async () => {
+										const newReview = {
+											rating: star * 1,
+											title: title,
+											comment: review,
+											food: foodId,
+											user: {
+												username: JSON.parse(
+													localStorage.getItem("user")
+												).username,
+											},
+										};
+										setReviews([...reviews, newReview]);
+										console.log(newReview);
+
+										const res = await axios.post(
+											"/api/review",
+											newReview
+										);
+
+										console.log(res);
+									};
+
+									sendReview();
+								}}
+							>
+								<input
+									type="text"
+									className="w-full input md:text-lg"
+									placeholder="Title for your review"
+									onChange={(e) => setTitle(e.target.value)}
+								/>
+
+								<input
+									type="text"
+									className="w-full input md:text-lg"
+									placeholder="How would you rate this dishes out of 5?"
+									onChange={(e) => {
+										console.log(e.target.value);
+										if (isNaN(e.target.value)) return;
+										setStar(e.target.value * 1);
+									}}
+								/>
+
+								<input
+									type="text"
+									className="w-full input md:text-lg"
+									placeholder="Any review on this dishes?"
+									onChange={handleReviewChange}
+								/>
+
+								<Button
+									content="review"
+									type="submit"
+									className="w-1/2 md:w-1/3 !mt-6 lg:w-1/6"
+								/>
+							</form>
+						)}
 					</div>
 
 					<div>
@@ -169,6 +226,7 @@ const DetailPage = () => {
 							{reviews?.length > 0 &&
 								reviews.map((item, index) => (
 									<ReviewCard
+										updateReview={updateReview}
 										review={item}
 										key={index}
 										handleDelete={handleDelete}
