@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import Button from "../../utilities/Button";
-import axios from "axios";
 
 const EditModal = ({ closeModal, id, updateReview }) => {
 	const [review, setReview] = useState("");
