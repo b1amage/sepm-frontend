@@ -6,6 +6,8 @@ import Button from "../utilities/Button";
 import Footer from "../components/footer/Footer";
 
 const CartPage = () => {
+	const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
 	return (
 		<div className="page-container">
 			<NavBar />
@@ -14,10 +16,9 @@ const CartPage = () => {
 				<h3 className="my-10 text-2xl font-bold">Your cart</h3>
 
 				<div className="flex flex-col space-y-5 md:grid md:grid-cols-2 md:w-full md:gap-5">
-					{Array(3)
-						.fill()
-						.map((_, index) => (
-							<CartCard key={index} />
+					{cart.length > 0 &&
+						cart.map((item, index) => (
+							<CartCard key={index} info={item} />
 						))}
 				</div>
 			</div>
@@ -32,7 +33,7 @@ const CartPage = () => {
 				</div>
 			</div>
 
-			<Button content="Order now" className="w-full my-10" />
+			<Button content="Order now" className="w-full my-10 lg:w-1/4" />
 			<Footer />
 		</div>
 	);

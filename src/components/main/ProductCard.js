@@ -2,10 +2,25 @@ import React from "react";
 import ImgFrame from "../../utilities/ImgFrame";
 import Button from "../../utilities/Button";
 import star from "../../assets/svg/star.svg";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ starCount, info }) => {
+	const navigate = useNavigate();
+
+	const handleAddToCart = (e) => {
+		e.stopPropagation();
+
+		let cart = JSON.parse(localStorage.getItem("cart")) || [];
+		cart = [...cart, info];
+		// console.log(cart);
+		localStorage.setItem("cart", JSON.stringify(cart));
+	};
+
 	return (
-		<div className="grid shadow-xl shrink-0 snap-start grid-cols-3 gap-3 md:gap-6 p-2 overflow-hidden rounded-lg place-items-center h-[150px] md:h-[175px] w-full max-w-[350px] mr-3">
+		<div
+			onClick={() => navigate(`/detail/${info._id}`)}
+			className="grid cursor-pointer shadow-xl shrink-0 snap-start grid-cols-3 gap-3 md:gap-6 p-2 overflow-hidden rounded-lg place-items-center h-[150px] md:h-[175px] w-full max-w-[350px] mr-3"
+		>
 			<ImgFrame
 				className="w-full h-full md:max-w-[175px] md:max-h-[120px] max-w-[120px] max-h-[100px] rounded-lg overflow-hidden"
 				src={info.image}
@@ -39,6 +54,7 @@ const ProductCard = ({ starCount, info }) => {
 					<h3 className="font-bold">{info.price}</h3>
 
 					<Button
+						onClick={handleAddToCart}
 						className="text-[10px] btn-sm"
 						content="add to cart"
 					/>
