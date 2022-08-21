@@ -117,8 +117,7 @@ const DetailPage = () => {
 							{food?.foodName}
 						</h1>
 						<p className="text-lg font-thin md:font-normal lg:text-2xl">
-							Lorem ipsum, dolor sit amet consectetur adipisicing
-							elit. Suscipit, rerum! Lorem ipsum dolor sit amet.
+							{food?.foodDescription}
 						</p>
 						<Button
 							content="Add to cart"
