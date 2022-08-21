@@ -6,17 +6,14 @@ import Footer from "../components/footer/Footer";
 import NavBar from "../components/header/NavBar";
 import Button from "../utilities/Button";
 import Loading from "../utilities/Loading";
-import Filter from "../components/filter/Filter";
 
-const DishesPage = () => {
-	const [nextCursor, setNextCursor] = useState();
+const PricePage = () => {
+	const [nextCursor, setNextCursor] = useState(false);
 	const [dishes, setDishes] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [isLoadMore, setIsLoadMore] = useState(false);
-	const [isUseFilter, setIsUseFilter] = useState(false);
 
-	const { category } = useParams();
-	console.log(isUseFilter);
+	const { minPrice, maxPrice } = useParams();
 
 	const handleSeeMore = () => {
 		const fetch = async () => {
@@ -25,9 +22,7 @@ const DishesPage = () => {
 			setIsLoadMore(true);
 
 			const res = await axios.get(
-				category !== "all"
-					? `https://food-suggestion-rmit.herokuapp.com/api/food?type=${category}&next_cursor=${nextCursor}`
-					: `https://food-suggestion-rmit.herokuapp.com/api/food?next_cursor=${nextCursor}`
+				`/api/food?minPrice=${minPrice}&maxPrice=${maxPrice}&next_cursor=${nextCursor}`
 			);
 
 			console.log(res.data);
@@ -44,37 +39,10 @@ const DishesPage = () => {
 		fetch();
 	};
 
-	const handleSeeMoreFilter = (type, filter) => {
-		const fetch = async () => {
-			if (!nextCursor) return;
-
-			setIsLoadMore(true);
-
-			const res = await axios.get(
-				`https://food-suggestion-rmit.herokuapp.com/api/food?${type}=${filter}`
-			);
-
-			console.log(res.data);
-
-			const newDishes = [...res.data.results];
-			console.log("new dishes filter", newDishes);
-
-			setIsUseFilter(true);
-			setDishes(newDishes);
-			setNextCursor(res.data.next_cursor);
-
-			setIsLoadMore(false);
-		};
-
-		fetch();
-	};
-
 	useEffect(() => {
 		const fetch = async () => {
 			const res = await axios.get(
-				category !== "all"
-					? `https://food-suggestion-rmit.herokuapp.com/api/food?type=${category}`
-					: `https://food-suggestion-rmit.herokuapp.com/api/food`
+				`/api/food?minPrice=${minPrice}&maxPrice=${maxPrice}`
 			);
 			console.log(res.data);
 
@@ -86,9 +54,9 @@ const DishesPage = () => {
 			setIsLoading(false);
 		};
 		fetch();
-	}, [category]);
+	}, [minPrice, maxPrice]);
 	return (
-		<div className="relative page-container">
+		<div className="page-container">
 			<NavBar />
 
 			{isLoading ? (
@@ -97,11 +65,6 @@ const DishesPage = () => {
 				</div>
 			) : (
 				<>
-					<Filter
-						setDishes={setDishes}
-						setNextCursor={setNextCursor}
-						handleSeeMoreFilter={handleSeeMoreFilter}
-					/>
 					<div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 place-items-center">
 						{dishes.length === 0 ? (
 							<div>No result found</div>
@@ -132,4 +95,4 @@ const DishesPage = () => {
 	);
 };
 
-export default DishesPage;
+export default PricePage;
