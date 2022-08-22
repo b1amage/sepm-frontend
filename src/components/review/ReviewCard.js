@@ -11,7 +11,7 @@ const ReviewCard = ({ review, handleDelete, updateReview }) => {
 	console.log("In review card", review);
 	const [isShowEditModal, setIsShowEditModal] = useState(false);
 	const { rating, title, comment } = review;
-	const username = review.user.username;
+	const username = review?.user.username;
 
 	const user = authenticationApi.isLogin()
 		? JSON.parse(localStorage.getItem("user"))

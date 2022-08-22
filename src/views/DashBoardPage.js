@@ -64,6 +64,30 @@ const DashBoardPage = () => {
 				</div>
 			</div>
 
+			<div className="my-8">
+				<h3 className="my-4 text-3xl font-bold uppercase">
+					Order food
+				</h3>
+
+				{/* <div className="flex items-center h-full">
+					<div className="w-[120px] h-[120px]">
+						<img
+							src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1365&q=80"
+							alt=""
+						/>
+					</div>
+
+					<div>
+						<h3>Name</h3>
+						<p>description</p>
+						<p>note</p>
+						<p>4</p>
+					</div>
+
+					<div>by user</div>
+				</div> */}
+			</div>
+
 			<Footer />
 		</div>
 	);
