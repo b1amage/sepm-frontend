@@ -23,7 +23,7 @@ const ReviewCard = ({ review, handleDelete, updateReview }) => {
 
 	return (
 		<div className="relative flex flex-col gap-4 p-4 rounded-lg shadow-2xl">
-			{username === user.username && (
+			{username === user?.username && (
 				<div className="absolute flex items-center gap-4 -translate-y-1/2 bottom-4 right-4">
 					<Button
 						onClick={() => setIsShowEditModal(!isShowEditModal)}
