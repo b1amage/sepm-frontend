@@ -16,6 +16,11 @@ const DashBoardPage = () => {
 	const [query, setQuery] = useState("");
 	const [showModal, setShowModal] = useState(false);
 
+	const handleDel = (id) => {
+		const newDishes = dishes.filter((food) => food._id !== id);
+		setDishes(newDishes);
+	};
+
 	const handleAdd = (food) => {
 		const add = async () => {
 			console.log("add");
@@ -103,7 +108,12 @@ const DashBoardPage = () => {
 				<div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4 place-items-center">
 					{dishes?.length > 0 &&
 						dishes.map((item, index) => (
-							<FoodCard food={item} key={index} />
+							<FoodCard
+								handleDel={handleDel}
+								isAdmin
+								food={item}
+								key={index}
+							/>
 						))}
 				</div>
 				{nextCursor && (
