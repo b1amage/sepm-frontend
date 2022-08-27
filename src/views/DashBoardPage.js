@@ -9,12 +9,14 @@ import { AiFillDelete, AiFillEye } from "react-icons/ai";
 import DashboardModal from "../components/dashboard/DashboardModal";
 import ImgFrame from "../utilities/ImgFrame";
 import search from "../assets/svg/search.svg";
+import EditModal from "../components/dashboard/EditModal";
 
 const DashBoardPage = () => {
 	const [dishes, setDishes] = useState([]);
 	const [nextCursor, setNextCursor] = useState();
 	const [query, setQuery] = useState("");
 	const [showModal, setShowModal] = useState(false);
+	const [showEdit, setShowEdit] = useState(false);
 
 	const handleDel = (id) => {
 		const newDishes = dishes.filter((food) => food._id !== id);
@@ -31,6 +33,18 @@ const DashBoardPage = () => {
 		};
 
 		add();
+	};
+
+	const handleEdit = (id, food) => {
+		const edit = async () => {
+			console.log("edit");
+
+			const res = await axios.patch(`/api/food/${id}`, food);
+
+			console.log(res);
+		};
+
+		edit();
 	};
 
 	const handleGetOne = () => {
@@ -80,6 +94,8 @@ const DashBoardPage = () => {
 		fetch();
 	};
 
+	const handleShowEdit = () => setShowEdit(true);
+
 	return (
 		<div className="page-container">
 			<NavBar />
@@ -109,6 +125,7 @@ const DashBoardPage = () => {
 					{dishes?.length > 0 &&
 						dishes.map((item, index) => (
 							<FoodCard
+								handleShowEdit={handleShowEdit}
 								handleDel={handleDel}
 								isAdmin
 								food={item}
@@ -157,6 +174,7 @@ const DashBoardPage = () => {
 			</div>
 
 			{showModal && <DashboardModal onAdd={handleAdd} />}
+			{showEdit && <EditModal onEdit={handleEdit} />}
 
 			<div className="my-8">
 				<h3 className="my-4 text-3xl font-bold uppercase">

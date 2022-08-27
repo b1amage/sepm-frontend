@@ -6,9 +6,7 @@ import Button from "../../utilities/Button";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const FoodCard = ({ food, isAdmin, handleDel }) => {
-	// console.log(food);
-
+const FoodCard = ({ food, isAdmin, handleDel, handleShowEdit }) => {
 	const handleDelete = (e) => {
 		e.stopPropagation();
 		const del = async () => {
@@ -25,7 +23,13 @@ const FoodCard = ({ food, isAdmin, handleDel }) => {
 			{isAdmin && (
 				<div className="absolute flex gap-2 right-2 bottom-4">
 					<Button content={<AiFillDelete />} onClick={handleDelete} />
-					<Button content={<BsFillPenFill />} />
+					<Button
+						content={<BsFillPenFill />}
+						onClick={() => {
+							localStorage.setItem("id", food._id);
+							handleShowEdit();
+						}}
+					/>
 				</div>
 			)}
 
