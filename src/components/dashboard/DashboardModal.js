@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Button from "../../utilities/Button";
+import axios from "axios";
 
 const DashboardModal = ({ onAdd }) => {
+	const [selectedFile, setSelectedFile] = useState();
+	const [isFilePicked, setIsFilePicked] = useState(false);
+
+	const changeHandler = (event) => {
+		console.log(isFilePicked);
+		setSelectedFile(event.target.files[0]);
+		setIsFilePicked(true);
+	};
+
 	const formik = useFormik({
 		initialValues: {
 			foodName: "",
@@ -20,10 +30,49 @@ const DashboardModal = ({ onAdd }) => {
 			prepareTime: Yup.number().required("Required"),
 		}),
 		onSubmit: (values) => {
-			onAdd({
-				...values,
-				image: "https://res.cloudinary.com/dxvbvzxcb/image/upload/v1656757372/file-upload/tmp-4-1656757396063_qhmk5m.png",
-			});
+			// const finalValues = {
+			// 	...values,
+			// 	image: selectedFile,
+			// };
+
+			// console.log(finalValues);
+
+			const postImg = async () => {
+				// console.log(selectedFile);
+				var bodyFormData = new FormData();
+				bodyFormData.append("image", selectedFile);
+				axios({
+					method: "post",
+					url: "/api/food/upload-image",
+					data: bodyFormData,
+					headers: { "Content-Type": "multipart/form-data" },
+				})
+					.then(function (response) {
+						//handle success
+						console.log(response);
+						console.log(response.data.image.src);
+						// setFileLink(response.data.image.src);
+						const newValues = {
+							...values,
+							image: response.data.image.src,
+						};
+
+						console.log(newValues);
+
+						onAdd(newValues);
+					})
+					.catch(function (response) {
+						//handle error
+						console.log(response);
+					});
+			};
+
+			postImg();
+
+			// onAdd({
+			// 	...values,
+			// 	image: "https://res.cloudinary.com/dxvbvzxcb/image/upload/v1656757372/file-upload/tmp-4-1656757396063_qhmk5m.png",
+			// });
 		},
 	});
 
@@ -122,6 +171,15 @@ const DashboardModal = ({ onAdd }) => {
 							<option>Dinner</option>
 						</select>
 					</div>
+				</div>
+
+				<div className="my-8">
+					<input
+						type="file"
+						id="myFile"
+						name="filename"
+						onChange={changeHandler}
+					/>
 				</div>
 
 				<Button content="submit" className="my-8" />
