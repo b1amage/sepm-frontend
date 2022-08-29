@@ -34,7 +34,7 @@ const EditModal = ({ onEdit }) => {
 	return ReactDOM.createPortal(
 		<div className="absolute inset-0 flex flex-col items-center justify-center gap-5 p-6 bg-black bg-opacity-40">
 			<h3 className="p-5 text-2xl font-bold text-white bg-red">
-				Add food
+				Edit food
 			</h3>
 			<form
 				className="p-5 bg-white w-[400px] rounded-lg"
