@@ -5,8 +5,30 @@ import momo from "../assets/svg/momo.svg";
 import Button from "../utilities/Button";
 import Footer from "../components/footer/Footer";
 
+import axios from "axios";
+
 const CartPage = () => {
 	const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+	const handleOrder = () => {
+		console.log("order");
+
+		const order = async () => {
+			try {
+				const response = await axios.post("/api/order/orderFood", {
+					foodId: cart[0]._id,
+					numberOfFood: 1,
+				});
+
+				console.log(response);
+				window.open(response.data.payUrl, "_blank");
+			} catch (err) {
+				console.log(err);
+			}
+		};
+
+		order();
+	};
 
 	return (
 		<div className="page-container">
@@ -33,7 +55,11 @@ const CartPage = () => {
 				</div>
 			</div>
 
-			<Button content="Order now" className="w-full my-10 lg:w-1/4" />
+			<Button
+				content="Order now"
+				className="w-full my-10 lg:w-1/4"
+				onClick={handleOrder}
+			/>
 			<Footer />
 		</div>
 	);

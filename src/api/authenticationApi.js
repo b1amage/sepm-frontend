@@ -9,7 +9,6 @@ const authenticationApi = {
 			return response;
 		} catch (error) {
 			console.log(error);
-			navigate(`/fail/${error.response.data.msg}`);
 		}
 	},
 
@@ -20,7 +19,6 @@ const authenticationApi = {
 			navigate(`/otp/${values.username}/${response.data.hash}`);
 		} catch (error) {
 			// console.log(error);
-			navigate(`/fail/${error.response.data.msg}`);
 		}
 	},
 

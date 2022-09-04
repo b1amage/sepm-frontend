@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import star from "../../assets/svg/star.svg";
 import { AiFillDelete } from "react-icons/ai";
 import { BsFillPenFill } from "react-icons/bs";
@@ -7,6 +7,9 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 const FoodCard = ({ food, isAdmin, handleDel, handleShowEdit }) => {
+	const [isShowQuantity, setIsShowQuantity] = useState(false);
+	const [quantity, setQuantity] = useState();
+
 	const handleDelete = (e) => {
 		e.stopPropagation();
 		const del = async () => {
@@ -16,6 +19,23 @@ const FoodCard = ({ food, isAdmin, handleDel, handleShowEdit }) => {
 		};
 
 		del();
+	};
+
+	const handleSubmitOpenOrder = (e) => {
+		e.preventDefault();
+		setIsShowQuantity(false);
+		console.log("create");
+
+		const createOrder = async () => {
+			const response = await axios.post("/api/order/openFoodOrder", {
+				foodId: food._id,
+				quantity,
+			});
+
+			console.log(response);
+		};
+
+		createOrder();
 	};
 
 	return (
@@ -44,13 +64,45 @@ const FoodCard = ({ food, isAdmin, handleDel, handleShowEdit }) => {
 			</Link>
 
 			<div className="flex flex-col items-start justify-center h-[150px] my-4">
-				<div className="flex flex-col flex-1">
-					<h3 className="text-2xl font-bold">
-						{food.foodName || "Com suon"}
-					</h3>
-					<h6 className="font-thin capitalize">
-						{food.vendor.username || "Global"}
-					</h6>
+				<div className="flex flex-col flex-1 w-full">
+					<div className="flex items-center justify-between w-full">
+						<div>
+							<h3 className="text-2xl font-bold">
+								{food.foodName || "Com suon"}
+							</h3>
+							<h6 className="font-thin capitalize">
+								{food.vendor.username || "Global"}
+							</h6>
+						</div>
+
+						{isAdmin && (
+							<div>
+								<p
+									className="underline cursor-pointer"
+									onClick={() =>
+										setIsShowQuantity(!isShowQuantity)
+									}
+								>
+									Open order
+								</p>
+								{isShowQuantity && (
+									<form onSubmit={handleSubmitOpenOrder}>
+										<input
+											type="text"
+											className="input w-[100px] h-[30px]"
+											placeholder="quantity"
+											name="quantity"
+											id="quantity"
+											onChange={(e) =>
+												setQuantity(e.target.value * 1)
+											}
+										/>
+									</form>
+								)}
+							</div>
+						)}
+					</div>
+
 					<div className="flex items-center justify-start my-2 space-x-1">
 						{Array(5)
 							.fill()

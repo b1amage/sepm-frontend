@@ -25,6 +25,15 @@ const DetailPage = () => {
 	const [title, setTitle] = useState("");
 	const [star, setStar] = useState(0);
 
+	const handleAddToCart = (e) => {
+		e.stopPropagation();
+
+		let cart = JSON.parse(localStorage.getItem("cart")) || [];
+		cart = [...cart, food];
+		// console.log(cart);
+		localStorage.setItem("cart", JSON.stringify(cart));
+	};
+
 	const handleDelete = (id) => {
 		const newReview = reviews.filter((item) => item._id !== id);
 		setReviews(newReview);
@@ -120,6 +129,7 @@ const DetailPage = () => {
 							{food?.foodDescription}
 						</p>
 						<Button
+							onClick={handleAddToCart}
 							content="Add to cart"
 							className="w-1/2 md:w-1/3 !mt-6 lg:w-1/6"
 						/>

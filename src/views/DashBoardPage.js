@@ -17,6 +17,19 @@ const DashBoardPage = () => {
 	const [query, setQuery] = useState("");
 	const [showModal, setShowModal] = useState(false);
 	const [showEdit, setShowEdit] = useState(false);
+	const [token, setToken] = useState();
+
+	console.log(token);
+
+	useEffect(() => {
+		const fetch = async () => {
+			const response = await axios.get("/api/order/getSubscriptionToken");
+			console.log(response);
+			setToken(response.data.token);
+		};
+
+		fetch();
+	}, []);
 
 	const handleDel = (id) => {
 		const newDishes = dishes.filter((food) => food._id !== id);
