@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Skeleton from "../../utilities/Skeleton";
 
-const ProductCategory = ({ category }) => {
+const ProductCategory = ({ category, isSpecial }) => {
 	const [products, setProducts] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 
@@ -14,10 +14,18 @@ const ProductCategory = ({ category }) => {
 		const fetchData = async () => {
 			try {
 				const response = await axios.get(
-					`https://food-suggestion-rmit.herokuapp.com/api/food?type=${category}`
+					isSpecial
+						? "/api/food/recommend"
+						: `https://food-suggestion-rmit.herokuapp.com/api/food?type=${category}`
 				);
 
-				setProducts(response.data.results);
+				console.log(isSpecial && response);
+
+				setProducts(
+					isSpecial
+						? response.data.user.recommendFoods
+						: response.data.results
+				);
 				setIsLoading(false);
 			} catch (err) {
 				console.log(err);
@@ -25,7 +33,7 @@ const ProductCategory = ({ category }) => {
 		};
 
 		fetchData();
-	}, [category]);
+	}, [category, isSpecial]);
 
 	console.log(products);
 
@@ -40,7 +48,7 @@ const ProductCategory = ({ category }) => {
 					? Array(5)
 							.fill()
 							.map((_, index) => <Skeleton key={index} />)
-					: products.length > 0 &&
+					: products?.length > 0 &&
 					  products.map((_, index) => (
 							<ProductCard
 								starCount={5}
@@ -50,14 +58,16 @@ const ProductCategory = ({ category }) => {
 							/>
 					  ))}
 
-				<div
-					onClick={() => {
-						navigate(`/dishes/${category}`);
-					}}
-					className="flex w-[250px] shrink-0 items-center justify-center rounded-lg !h-[150px] md:!h-[175px] bg-red bg-opacity-50 text-darkRed uppercase font-bold text-xl"
-				>
-					<h1 className="text-white cursor-pointer">See all</h1>
-				</div>
+				{!isSpecial && (
+					<div
+						onClick={() => {
+							navigate(`/dishes/${category}`);
+						}}
+						className="flex w-[250px] shrink-0 items-center justify-center rounded-lg !h-[150px] md:!h-[175px] bg-red bg-opacity-50 text-darkRed uppercase font-bold text-xl"
+					>
+						<h1 className="text-white cursor-pointer">See all</h1>
+					</div>
+				)}
 			</div>
 		</div>
 	);

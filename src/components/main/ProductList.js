@@ -10,6 +10,8 @@ const ProductList = () => {
 				categories.map((_, index) => (
 					<ProductCategory key={index} category={categories[index]} />
 				))}
+
+			<ProductCategory isSpecial="true" category="Recommended" />
 		</div>
 	);
 };
