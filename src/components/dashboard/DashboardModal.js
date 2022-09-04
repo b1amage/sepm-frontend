@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Button from "../../utilities/Button";
@@ -13,8 +13,6 @@ const DashboardModal = ({ onAdd }) => {
 		setSelectedFile(event.target.files[0]);
 		setIsFilePicked(true);
 	};
-
-
 
 	const formik = useFormik({
 		initialValues: {
