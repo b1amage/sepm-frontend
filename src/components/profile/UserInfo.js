@@ -15,7 +15,7 @@ const UserInfo = ({ username, email }) => {
 				</div>
 			)}
 
-			<div className="flex items-center justify-between w-full !my-10 text-center md:w-3/5 md:mx-auto">
+			{/* <div className="flex items-center justify-between w-full !my-10 text-center md:w-3/5 md:mx-auto">
 				<div className="flex flex-col items-center justify-center space-y-3">
 					<h3 className="text-2xl font-bold md:text-3xl lg:text-4xl">
 						25
@@ -36,7 +36,7 @@ const UserInfo = ({ username, email }) => {
 					</h3>
 					<h6 className="text-lg">Vendors</h6>
 				</div>
-			</div>
+			</div> */}
 		</>
 	);
 };

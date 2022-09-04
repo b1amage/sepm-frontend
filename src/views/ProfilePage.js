@@ -1,10 +1,9 @@
 import React from "react";
 import NavBar from "../components/header/NavBar";
-import ImgFrame from "../utilities/ImgFrame";
-import baoImg from "../assets/img/bao-img.png";
+
 import Button from "../utilities/Button";
 import UserInfo from "../components/profile/UserInfo";
-import UserReview from "../components/profile/UserReview";
+
 import authenticationApi from "../api/authenticationApi";
 import Footer from "../components/footer/Footer";
 import RequireLogin from "../components/profile/RequireLogin";
@@ -28,10 +27,10 @@ const ProfilePage = () => {
 					<NavBar />
 
 					<div className="flex flex-col items-center justify-center my-10 space-y-4">
-						<ImgFrame
+						{/* <ImgFrame
 							src={baoImg}
 							className="rounded-full w-[200px] h-[200px] overflow-hidden"
-						/>
+						/> */}
 
 						<UserInfo username={user.username} email={user.email} />
 
@@ -47,7 +46,7 @@ const ProfilePage = () => {
 							/>
 						</div>
 
-						<UserReview />
+						{/* <UserReview /> */}
 					</div>
 					<Footer />
 				</>
