@@ -11,6 +11,10 @@ import ImgFrame from "../utilities/ImgFrame";
 import search from "../assets/svg/search.svg";
 import EditModal from "../components/dashboard/EditModal";
 import { io } from "socket.io-client";
+import OrderCard from "../components/order/OrderCard";
+import { ReactNotifications } from "react-notifications-component";
+import { Store } from "react-notifications-component";
+import "react-notifications-component/dist/theme.css";
 
 const DashBoardPage = () => {
 	const [dishes, setDishes] = useState([]);
@@ -19,30 +23,79 @@ const DashBoardPage = () => {
 	const [showModal, setShowModal] = useState(false);
 	const [showEdit, setShowEdit] = useState(false);
 	const [token, setToken] = useState();
+	const [orders, setOrders] = useState([]);
+	const [nextCursorOrder, setNextCursorOrder] = useState();
 
 	console.log(token);
+
+	useEffect(() => {
+		const fetch = async () => {
+			const response = await axios.get("/api/order/getOrders");
+			console.log("get all orders: ", response);
+			setOrders(response.data.results);
+			setNextCursorOrder(response.data.next_cursor);
+		};
+
+		fetch();
+	}, []);
+
+	const handleSeeMoreOrder = () => {
+		const fetch = async () => {
+			const response = await axios.get(
+				`/api/order/getOrders?next_cursor=${nextCursorOrder}`
+			);
+
+			console.log(response);
+
+			setOrders([...orders, ...response.data.results]);
+		};
+
+		fetch();
+	};
 
 	useEffect(() => {
 		const fetch = async () => {
 			const response = await axios.get("/api/order/getSubscriptionToken");
 			console.log(response);
 			setToken(response.data.token);
+
+			const socket = io("https://food-suggestion-rmit.herokuapp.com", {
+				auth: { token: response.data.token },
+			});
+
+			console.log("socket: ", socket);
+
+			socket.emit(
+				"subscribe",
+				JSON.parse(localStorage.getItem("user")).userId
+			);
+
+			socket.on("notification", (payload) => {
+				console.log("new order!");
+				console.log(payload);
+
+				Store.addNotification({
+					title: "New Order",
+					message: `${payload.user.username} has just ordered ${payload.numberOfFood} ${payload.food.foodName}`,
+					type: "success",
+					insert: "top",
+					container: "bottom-right",
+					animationIn: ["animate__animated", "animate__fadeIn"],
+					animationOut: ["animate__animated", "animate__fadeOut"],
+					dismiss: {
+						duration: 5000,
+						onScreen: true,
+					},
+				});
+			});
+
+			return () => {
+				socket.off("notification", () => console.log("off"));
+			};
 		};
 
 		fetch();
 	}, []);
-
-	useEffect(() => {
-		const socket = io("http://localhost:8080", { auth: { token } });
-
-		socket.on("notification", (payload) => {
-			console.log(payload);
-		});
-
-		return () => {
-			socket.off("notification", () => console.log("off"));
-		};
-	}, [token]);
 
 	const handleDel = (id) => {
 		const newDishes = dishes.filter((food) => food._id !== id);
@@ -125,6 +178,11 @@ const DashBoardPage = () => {
 	return (
 		<div className="page-container">
 			<NavBar />
+
+			<div className="!fixed -translate-x-1/2 right-4 bottom-4">
+				<ReactNotifications />
+			</div>
+
 			<div className="my-8">
 				<h3 className="my-4 text-3xl font-bold uppercase">
 					Global featured dishes
@@ -206,6 +264,17 @@ const DashBoardPage = () => {
 				<h3 className="my-4 text-3xl font-bold uppercase">
 					Order food
 				</h3>
+
+				<div>
+					{orders?.length > 0 &&
+						orders.map((item) => (
+							<OrderCard key={item._id} order={item} />
+						))}
+				</div>
+
+				{nextCursorOrder && (
+					<Button onClick={handleSeeMoreOrder} content="View more" />
+				)}
 			</div>
 
 			<Footer />

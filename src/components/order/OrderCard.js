@@ -1,7 +1,7 @@
 import React from "react";
 
-const OrderCard = () => {
-	return <div></div>;
+const OrderCard = ({ order }) => {
+	return <div>{order._id}</div>;
 };
 
 export default OrderCard;
