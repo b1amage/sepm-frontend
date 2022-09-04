@@ -273,7 +273,11 @@ const DashBoardPage = () => {
 				</div>
 
 				{nextCursorOrder && (
-					<Button onClick={handleSeeMoreOrder} content="View more" />
+					<Button
+						className="my-8"
+						onClick={handleSeeMoreOrder}
+						content="View more"
+					/>
 				)}
 			</div>
 
