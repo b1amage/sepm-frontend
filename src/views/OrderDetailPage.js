@@ -17,6 +17,10 @@ const OrderDetailPage = () => {
 	const totalPrice = searchParams.get("totalPrice");
 	const totalPrepareTime = searchParams.get("totalPrepareTime");
 
+	const info = { user, image, food, vendor, totalPrice, totalPrepareTime };
+
+	console.log(image);
+
 	return (
 		<div className="page-container">
 			<NavBar />
@@ -34,7 +38,7 @@ const OrderDetailPage = () => {
 			</div>
 
 			<div className="flex items-center justify-center my-8">
-				<CartCard foodName={food} img={image} />
+				<CartCard info={info} foodName={food} img={image} />
 			</div>
 
 			<div className="flex flex-col items-center justify-center space-y-4 my-7 md:my-9">
