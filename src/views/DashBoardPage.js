@@ -10,6 +10,7 @@ import DashboardModal from "../components/dashboard/DashboardModal";
 import ImgFrame from "../utilities/ImgFrame";
 import search from "../assets/svg/search.svg";
 import EditModal from "../components/dashboard/EditModal";
+import { io } from "socket.io-client";
 
 const DashBoardPage = () => {
 	const [dishes, setDishes] = useState([]);
@@ -30,6 +31,18 @@ const DashBoardPage = () => {
 
 		fetch();
 	}, []);
+
+	useEffect(() => {
+		const socket = io("http://localhost:8080", { auth: { token } });
+
+		socket.on("notification", (payload) => {
+			console.log(payload);
+		});
+
+		return () => {
+			socket.off("notification", () => console.log("off"));
+		};
+	}, [token]);
 
 	const handleDel = (id) => {
 		const newDishes = dishes.filter((food) => food._id !== id);
