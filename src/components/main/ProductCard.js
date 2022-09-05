@@ -16,10 +16,18 @@ const ProductCard = ({ starCount, info }) => {
 			info.count = 1;
 			cart.push(info);
 		} else {
-			if (!cart[0]._id === info._id) {
-				return;
+			const temp = cart.filter((item) => item._id === info._id);
+			if (temp.length > 0) {
+				cart = cart.map((item) => {
+					if (item._id === info._id) {
+						item.count = item.count + 1;
+					}
+
+					return item;
+				});
 			} else {
-				cart[0].count = cart[0].count + 1;
+				info.count = 1;
+				cart.push(info);
 			}
 		}
 

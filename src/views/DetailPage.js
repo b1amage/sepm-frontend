@@ -34,10 +34,18 @@ const DetailPage = () => {
 			food.count = 1;
 			cart.push(food);
 		} else {
-			if (!cart[0]._id === food._id) {
-				return;
+			const temp = cart.filter((item) => item._id === food._id);
+			if (temp.length > 0) {
+				cart = cart.map((item) => {
+					if (item._id === food._id) {
+						item.count = item.count + 1;
+					}
+
+					return item;
+				});
 			} else {
-				cart[0].count = cart[0].count + 1;
+				food.count = 1;
+				cart.push(food);
 			}
 		}
 

@@ -2,33 +2,32 @@ import React from "react";
 import CartCard from "../components/cart/CartCard";
 import NavBar from "../components/header/NavBar";
 import momo from "../assets/svg/momo.svg";
-import Button from "../utilities/Button";
 import Footer from "../components/footer/Footer";
 
-import axios from "axios";
+// import axios from "axios";
 
 const CartPage = () => {
 	const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-	const handleOrder = () => {
-		console.log("order");
+	// const handleOrder = () => {
+	// 	console.log("order");
 
-		const order = async () => {
-			try {
-				const response = await axios.post("/api/order/orderFood", {
-					foodId: cart[0]._id,
-					numberOfFood: cart[0].count,
-				});
+	// 	const order = async () => {
+	// 		try {
+	// 			const response = await axios.post("/api/order/orderFood", {
+	// 				foodId: cart[0]._id,
+	// 				numberOfFood: cart[0].count,
+	// 			});
 
-				console.log(response);
-				window.open(response.data.payUrl, "_blank");
-			} catch (err) {
-				console.log(err);
-			}
-		};
+	// 			console.log(response);
+	// 			window.open(response.data.payUrl, "_blank");
+	// 		} catch (err) {
+	// 			console.log(err);
+	// 		}
+	// 	};
 
-		order();
-	};
+	// 	order();
+	// };
 
 	return (
 		<div className="page-container">
@@ -55,11 +54,6 @@ const CartPage = () => {
 				</div>
 			</div>
 
-			<Button
-				content="Order now"
-				className="w-full my-10 lg:w-1/4"
-				onClick={handleOrder}
-			/>
 			<Footer />
 		</div>
 	);

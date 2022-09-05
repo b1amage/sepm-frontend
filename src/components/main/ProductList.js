@@ -12,7 +12,7 @@ const ProductList = () => {
 					<ProductCategory key={index} category={categories[index]} />
 				))}
 
-			{authenticationApi.isLogin() && (
+			{authenticationApi.isLogin() && !authenticationApi.isAdmin() && (
 				<ProductCategory isSpecial="true" category="Recommended" />
 			)}
 		</div>
