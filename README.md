@@ -24,7 +24,7 @@
 
 -   Project name: Food Recommend Website-Application
 -   Purpose: Recommend food on vendors for RMIT Students
--   Functionalities: \_
+-   Functionalities: View, Order, Review, and CMS admin dashboard
 -   Technologies used:
 
     -   Frontend: HTML, SASS, ReactJS, TailwindCSS
