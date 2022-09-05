@@ -35,10 +35,10 @@ const ProfilePage = () => {
 						<UserInfo username={user.username} email={user.email} />
 
 						<div className="flex items-center justify-around w-full md:w-1/2 lg:w-[30%] md:mx-auto">
-							<Button
+							{/* <Button
 								content="Edit profile"
 								className="min-w-[130px] md:min-w-[150px] lg:min-w-[180px]"
-							/>
+							/> */}
 							<Button
 								onClick={logOut}
 								content="Log out"

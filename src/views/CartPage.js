@@ -17,7 +17,7 @@ const CartPage = () => {
 			try {
 				const response = await axios.post("/api/order/orderFood", {
 					foodId: cart[0]._id,
-					numberOfFood: 1,
+					numberOfFood: cart[0].count,
 				});
 
 				console.log(response);

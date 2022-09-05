@@ -1,5 +1,4 @@
 import React from "react";
-import Counter from "./Counter";
 
 const CartCard = ({ info }) => {
 	return (
@@ -18,7 +17,7 @@ const CartCard = ({ info }) => {
 				</div>
 
 				<div className="flex items-center justify-between text-xl">
-					<Counter />
+					<p>Quantity: {info.count}</p>
 
 					<p>{info.price}</p>
 				</div>

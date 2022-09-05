@@ -29,8 +29,18 @@ const DetailPage = () => {
 		e.stopPropagation();
 
 		let cart = JSON.parse(localStorage.getItem("cart")) || [];
-		cart = [...cart, food];
-		// console.log(cart);
+
+		if (cart.length === 0) {
+			food.count = 1;
+			cart.push(food);
+		} else {
+			if (!cart[0]._id === food._id) {
+				return;
+			} else {
+				cart[0].count = cart[0].count + 1;
+			}
+		}
+
 		localStorage.setItem("cart", JSON.stringify(cart));
 	};
 

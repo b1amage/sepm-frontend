@@ -11,8 +11,18 @@ const ProductCard = ({ starCount, info }) => {
 		e.stopPropagation();
 
 		let cart = JSON.parse(localStorage.getItem("cart")) || [];
-		cart = [...cart, info];
-		// console.log(cart);
+
+		if (cart.length === 0) {
+			info.count = 1;
+			cart.push(info);
+		} else {
+			if (!cart[0]._id === info._id) {
+				return;
+			} else {
+				cart[0].count = cart[0].count + 1;
+			}
+		}
+
 		localStorage.setItem("cart", JSON.stringify(cart));
 	};
 
