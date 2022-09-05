@@ -19,8 +19,6 @@ const ProductCategory = ({ category, isSpecial }) => {
 						: `https://food-suggestion-rmit.herokuapp.com/api/food?type=${category}`
 				);
 
-				console.log(isSpecial && response);
-
 				setProducts(
 					isSpecial
 						? response.data.user.recommendFoods

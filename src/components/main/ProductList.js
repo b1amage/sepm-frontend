@@ -1,5 +1,6 @@
 import React from "react";
 import ProductCategory from "./ProductCategory";
+import authenticationApi from "../../api/authenticationApi";
 
 const categories = ["Breakfast", "Lunch", "Dinner"];
 
@@ -11,7 +12,9 @@ const ProductList = () => {
 					<ProductCategory key={index} category={categories[index]} />
 				))}
 
-			<ProductCategory isSpecial="true" category="Recommended" />
+			{authenticationApi.isLogin() && (
+				<ProductCategory isSpecial="true" category="Recommended" />
+			)}
 		</div>
 	);
 };

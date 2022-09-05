@@ -26,7 +26,7 @@ const ProfilePage = () => {
 				<>
 					<NavBar />
 
-					<div className="flex flex-col items-center justify-center my-10 space-y-4">
+					<div className="flex flex-col items-center justify-center h-[50vh] my-10 space-y-4">
 						{/* <ImgFrame
 							src={baoImg}
 							className="rounded-full w-[200px] h-[200px] overflow-hidden"
