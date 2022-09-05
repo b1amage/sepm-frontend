@@ -16,10 +16,17 @@ const OrderDetailPage = () => {
 	const vendor = searchParams.get("vendor");
 	const totalPrice = searchParams.get("totalPrice");
 	const totalPrepareTime = searchParams.get("totalPrepareTime");
+	const quantity = JSON.parse(localStorage.getItem("cart"))[0].count;
 
-	const info = { user, image, food, vendor, totalPrice, totalPrepareTime };
-
-	console.log(image);
+	const info = {
+		user,
+		image,
+		food,
+		vendor,
+		totalPrice,
+		totalPrepareTime,
+		count: quantity,
+	};
 
 	return (
 		<div className="page-container">
@@ -28,7 +35,7 @@ const OrderDetailPage = () => {
 			<div className="flex flex-col items-center justify-center my-6 space-y-4 md:my-8">
 				<h3 className="text-lg font-semibold md:text-3xl">
 					Summary of{" "}
-					<span className="capitalize text-red">{user}</span> your
+					<span className="capitalize text-red">{user}</span>
 					order
 				</h3>
 				<h6 className="text-lg font-semibold md:text-2xl">
