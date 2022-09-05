@@ -25,7 +25,7 @@ const CartCard = ({ info }) => {
 					{info?.foodName || info?.food}
 				</h1>
 				<div className="text-lg">
-					<h3>{info?.vendor.username || info?.vendor}</h3>
+					<h3>{info?.vendor?.username || info?.vendor}</h3>
 					<h6>{info?.location}</h6>
 				</div>
 
