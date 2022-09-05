@@ -15,6 +15,8 @@ import OrderCard from "../components/order/OrderCard";
 import { ReactNotifications } from "react-notifications-component";
 import { Store } from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";
+import authenticationApi from "../api/authenticationApi";
+import { useNavigate } from "react-router-dom";
 
 const DashBoardPage = () => {
 	const [dishes, setDishes] = useState([]);
@@ -27,6 +29,13 @@ const DashBoardPage = () => {
 	const [nextCursorOrder, setNextCursorOrder] = useState();
 
 	console.log(token);
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		if (!authenticationApi.isAdmin()) {
+			navigate("/");
+		}
+	}, [navigate]);
 
 	useEffect(() => {
 		const fetch = async () => {

@@ -83,6 +83,10 @@ const authenticationApi = {
 	isLogin() {
 		return JSON.parse(localStorage.getItem("user"));
 	},
+
+	isAdmin() {
+		return JSON.parse(localStorage.getItem("user"))?.role === "vendor";
+	},
 };
 
 export default authenticationApi;
