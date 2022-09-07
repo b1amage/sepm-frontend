@@ -10,6 +10,7 @@ import FoodCard from "../components/dishes/FoodCard";
 import Loading from "../utilities/Loading";
 import authenticationApi from "../api/authenticationApi";
 import ReviewCard from "../components/review/ReviewCard";
+import starImg from "../assets/svg/star.svg";
 
 const DetailPage = () => {
 	const { foodId } = useParams();
@@ -170,6 +171,28 @@ const DetailPage = () => {
 					</div>
 
 					<div className="relative my-10" id="review">
+						<div>
+							<h3 className="mb-3 text-2xl font-bold lg:text-4xl">
+								Average rating
+							</h3>
+							<div className="flex items-center gap-2 my-8">
+								{Array(Math.round(food?.averageRating))
+									.fill()
+									.map((item, index) => (
+										<div
+											key={index}
+											className="w-3 h-3 overflow-hidden"
+										>
+											<img
+												src={starImg}
+												alt=""
+												className="object-cover w-full h-full"
+											/>
+										</div>
+									))}
+							</div>
+						</div>
+
 						<h1
 							onClick={() => setIsShowReview((prev) => !prev)}
 							className={`mb-3 text-2xl font-bold transition-all cursor-pointer ${
