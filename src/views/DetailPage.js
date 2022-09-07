@@ -25,6 +25,8 @@ const DetailPage = () => {
 	const [title, setTitle] = useState("");
 	const [star, setStar] = useState(0);
 
+	console.log("food", food);
+
 	const handleAddToCart = (e) => {
 		e.stopPropagation();
 
@@ -145,6 +147,9 @@ const DetailPage = () => {
 						</h1>
 						<p className="text-lg font-thin md:font-normal lg:text-2xl">
 							{food?.foodDescription}
+						</p>
+						<p className="text-lg font-thin md:font-normal lg:text-2xl">
+							{food?.quantity} left
 						</p>
 						<Button
 							onClick={handleAddToCart}

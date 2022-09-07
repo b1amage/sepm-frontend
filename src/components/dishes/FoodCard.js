@@ -10,6 +10,8 @@ const FoodCard = ({ food, isAdmin, handleDel, handleShowEdit }) => {
 	const [isShowQuantity, setIsShowQuantity] = useState(false);
 	const [quantity, setQuantity] = useState();
 
+	console.log(food);
+
 	const handleDelete = (e) => {
 		e.stopPropagation();
 		const del = async () => {
