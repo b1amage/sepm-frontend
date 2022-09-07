@@ -1,7 +1,6 @@
 import React from "react";
 import ImgFrame from "../../utilities/ImgFrame";
 import Button from "../../utilities/Button";
-import star from "../../assets/svg/star.svg";
 import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ starCount, info }) => {
@@ -56,7 +55,7 @@ const ProductCard = ({ starCount, info }) => {
 				</div>
 
 				<div className="flex flex-1 space-x-2">
-					{starCount > 0 &&
+					{/* {starCount > 0 &&
 						Array(starCount)
 							.fill()
 							.map((_, index) => (
@@ -65,7 +64,7 @@ const ProductCard = ({ starCount, info }) => {
 									className="w-3 h-3"
 									key={index}
 								/>
-							))}
+							))} */}
 				</div>
 
 				<div className="flex items-center justify-between w-full mt-3">

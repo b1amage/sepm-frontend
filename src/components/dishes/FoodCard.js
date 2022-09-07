@@ -106,7 +106,7 @@ const FoodCard = ({ food, isAdmin, handleDel, handleShowEdit }) => {
 					</div>
 
 					<div className="flex items-center justify-start my-2 space-x-1">
-						{Array(5)
+						{Array(Math.round(food?.averageRating))
 							.fill()
 							.map((_, index) => (
 								<img
