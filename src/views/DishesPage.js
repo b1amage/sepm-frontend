@@ -102,7 +102,7 @@ const DishesPage = () => {
 						setNextCursor={setNextCursor}
 						handleSeeMoreFilter={handleSeeMoreFilter}
 					/>
-					<div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 place-items-center">
+					<div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2 lg:gap-y-10 xl:grid-cols-4 place-items-center">
 						{dishes.length === 0 ? (
 							<div>No result found</div>
 						) : (
