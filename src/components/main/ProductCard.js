@@ -49,7 +49,7 @@ const ProductCard = ({ starCount, info }) => {
 						{info.foodName}
 					</h3>
 					<div className="text-[10px] md:text-sm font-normal capitalize">
-						<h6>{info.vendor.username}</h6>
+						<h6 className="mb-4">{info.vendor.username}</h6>
 						<p>{info.location}</p>
 					</div>
 				</div>
